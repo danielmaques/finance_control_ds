@@ -1,4 +1,4 @@
-import 'package:finance_control_ui/0_core/typography/finance_fonts.dart';
+import 'package:finance_control_ui/0_core/text/typography/finance_fonts.dart';
 
 import 'finance_font_weight.dart';
 import 'finance_text_style.dart';
