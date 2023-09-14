@@ -14,8 +14,7 @@ class FinanceTransactionList extends StatelessWidget {
     return ListView.separated(
       itemCount: transactionsByMonth.keys.length,
       shrinkWrap: true,
-      separatorBuilder: (context, index) =>
-          const Divider(color: Color(0xFFEEF2F8)),
+      separatorBuilder: (context, index) => const SizedBox(height: 20),
       itemBuilder: (context, index) {
         String month = transactionsByMonth.keys.elementAt(index);
         List<Map<String, dynamic>> transactionsForMonth =
@@ -38,7 +37,7 @@ class FinanceTransactionList extends StatelessWidget {
               itemCount: transactionsForMonth.length,
               separatorBuilder: (context, index) => const Padding(
                 padding: EdgeInsets.symmetric(vertical: 14),
-                child: Divider(color: Color(0xFFEEF2F8)),
+                child: Divider(color: Colors.black38),
               ),
               itemBuilder: (context, index) {
                 final currentTransaction = transactionsForMonth[index];
