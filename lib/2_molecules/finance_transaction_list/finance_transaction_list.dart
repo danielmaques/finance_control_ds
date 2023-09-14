@@ -57,8 +57,11 @@ class FinanceTransactionList extends StatelessWidget {
                         color: const Color(0xFFEEF2F8),
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      child: FinanceText.p16(
-                        getInitial(currentTransaction['descricao']),
+                      child: Center(
+                        child: FinanceText.p18(
+                          getInitial(currentTransaction['descricao']),
+                          color: AppColors.deepBlue,
+                        ),
                       ),
                     ),
                     const SizedBox(width: 15),
