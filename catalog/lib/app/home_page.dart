@@ -1,4 +1,5 @@
 import 'package:catalog/app/about_page.dart';
+import 'package:catalog/app/menu_page.dart';
 import 'package:flutter/material.dart';
 
 import 'home_top_bar_page.dart';
@@ -48,6 +49,15 @@ class _HomePageState extends State<HomePage> {
                   onPressed: () {
                     setState(() {
                       page = const TransactionTopBarPage();
+                    });
+                  },
+                ),
+                CustomDrawerButton(
+                  label: 'Transaction Top Bar',
+                  icon: const Icon(Icons.menu),
+                  onPressed: () {
+                    setState(() {
+                      page = const MenuPage();
                     });
                   },
                 ),

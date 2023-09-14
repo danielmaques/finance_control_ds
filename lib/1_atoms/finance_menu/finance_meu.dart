@@ -11,15 +11,16 @@ class FinanceMenu extends StatelessWidget {
 
   final String label;
   final IconData icon;
-  final Function()? onTap;
+  final Function onTap;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Column(
-        children: [
-          Container(
+    return Column(
+      children: [
+        InkWell(
+          onTap: () => onTap(),
+          borderRadius: BorderRadius.circular(12),
+          child: Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: AppColors.lighterBlue,
@@ -30,12 +31,12 @@ class FinanceMenu extends StatelessWidget {
               color: AppColors.white,
             ),
           ),
-          FinanceText.p12(
-            label,
-            color: AppColors.white,
-          ),
-        ],
-      ),
+        ),
+        FinanceText.p12(
+          label,
+          color: AppColors.white,
+        ),
+      ],
     );
   }
 }
