@@ -2,6 +2,7 @@ import 'package:catalog/app/about_page.dart';
 import 'package:catalog/app/menu_page.dart';
 import 'package:flutter/material.dart';
 
+import 'drop_down_page.dart';
 import 'home_top_bar_page.dart';
 import 'text_field_page.dart';
 import 'transaction_top_bar_page.dart';
@@ -68,6 +69,15 @@ class _HomePageState extends State<HomePage> {
                   onPressed: () {
                     setState(() {
                       page = const TextFieldPage();
+                    });
+                  },
+                ),
+                CustomDrawerButton(
+                  label: 'Drop Down',
+                  icon: const Icon(Icons.arrow_drop_down_circle),
+                  onPressed: () {
+                    setState(() {
+                      page = const DropDownPage();
                     });
                   },
                 ),
