@@ -70,8 +70,7 @@ class FinanceTransactionList extends StatelessWidget {
                             color: Colors.black,
                           ),
                           FinanceText.p16(
-                            formatDate(
-                                DateTime.parse(currentTransaction['data'])),
+                            formatDate(currentTransaction['data'].toDate()),
                             color: const Color(0xFF717E95),
                           ),
                         ],
