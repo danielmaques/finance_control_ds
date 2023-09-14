@@ -1,7 +1,9 @@
 import 'package:catalog/app/about_page.dart';
 import 'package:flutter/material.dart';
 
-import 'widgets/afinz_drawer_button.dart';
+import 'home_top_bar_page.dart';
+import 'transaction_top_bar_page.dart';
+import 'widgets/custom_drawer_button.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -24,37 +26,46 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      // appBar: AfinzAppBar(
-      //   title: 'Afinz Design System',
-      //   leadingIcon: AfinzIcons.menu,
-      //   onPressedleading: () => _scaffoldKey.currentState!.openDrawer(),
-      //   elevation: 0,
-      // ),
+      appBar: AppBar(),
       drawer: Drawer(
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              CustomDrawerButton(
-                label: 'Sobre',
-                icon: const Icon(Icons.abc),
-                onPressed: () {
-                  setState(() {
-                    page = const AboutPage();
-                  });
-                },
-              ),
-            ],
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 50),
+            child: Column(
+              children: [
+                CustomDrawerButton(
+                  label: 'Home Top Bar',
+                  icon: const Icon(Icons.home),
+                  onPressed: () {
+                    setState(() {
+                      page = const HomeTopBarPage();
+                    });
+                  },
+                ),
+                CustomDrawerButton(
+                  label: 'Transaction Top Bar',
+                  icon: const Icon(Icons.monetization_on_outlined),
+                  onPressed: () {
+                    setState(() {
+                      page = const TransactionTopBarPage();
+                    });
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        child: SizedBox(
-          width: double.infinity,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 20,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: SizedBox(
+            width: double.infinity,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 20,
+              ),
+              child: page,
             ),
-            child: page,
           ),
         ),
       ),

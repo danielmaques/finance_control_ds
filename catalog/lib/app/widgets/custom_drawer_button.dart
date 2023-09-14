@@ -19,7 +19,7 @@ class CustomDrawerButton extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 10,
-          vertical: 10,
+          vertical: 20,
         ),
         child: Row(
           children: [
