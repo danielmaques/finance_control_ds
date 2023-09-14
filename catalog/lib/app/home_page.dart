@@ -1,4 +1,7 @@
 import 'package:catalog/app/about_page.dart';
+import 'package:catalog/app/button_page.dart';
+import 'package:catalog/app/checkbox_page.dart';
+import 'package:catalog/app/list_page.dart';
 import 'package:catalog/app/menu_page.dart';
 import 'package:flutter/material.dart';
 
@@ -78,6 +81,33 @@ class _HomePageState extends State<HomePage> {
                   onPressed: () {
                     setState(() {
                       page = const DropDownPage();
+                    });
+                  },
+                ),
+                CustomDrawerButton(
+                  label: 'Button',
+                  icon: const Icon(Icons.rectangle_rounded),
+                  onPressed: () {
+                    setState(() {
+                      page = const ButtonPage();
+                    });
+                  },
+                ),
+                CustomDrawerButton(
+                  label: 'Check Box',
+                  icon: const Icon(Icons.check_box_rounded),
+                  onPressed: () {
+                    setState(() {
+                      page = const CheckBoxPage();
+                    });
+                  },
+                ),
+                CustomDrawerButton(
+                  label: 'Transaction List',
+                  icon: const Icon(Icons.list_rounded),
+                  onPressed: () {
+                    setState(() {
+                      page = const ListPage();
                     });
                   },
                 ),
