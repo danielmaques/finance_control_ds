@@ -10,25 +10,25 @@ class ListPage extends StatelessWidget {
     'Mar 2023': [
       {
         'descricao': 'Compra no Supermercado',
-        'data': '2023-03-15T10:30:00Z',
+        'data': '14 de set. de 2023',
         'valor': 150.50,
         'add': false
       },
       {
         'descricao': 'Compra no Supermercado',
-        'data': '2023-03-15T10:30:00Z',
+        'data': '14 de set. de 2023',
         'valor': 150.50,
         'add': false
       },
       {
         'descricao': 'Compra no Supermercado',
-        'data': '2023-03-15T10:30:00Z',
+        'data': '14 de set. de 2023',
         'valor': 150.50,
         'add': false
       },
       {
         'descricao': 'Salário',
-        'data': '2023-03-01T00:00:00Z',
+        'data': '14 de set. de 2023',
         'valor': 2500.00,
         'add': true
       },
@@ -36,7 +36,7 @@ class ListPage extends StatelessWidget {
     'Feb 2023': [
       {
         'descricao': 'Jantar em Restaurante',
-        'data': '2023-02-20T19:30:00Z',
+        'data': '14 de set. de 2023',
         'valor': 100.00,
         'add': false
       },

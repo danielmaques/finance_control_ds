@@ -11,6 +11,10 @@ class FinanceTransactionList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String getInitial(String name) {
+      return name.isNotEmpty ? name[0].toUpperCase() : '?';
+    }
+
     return ListView.separated(
       itemCount: transactionsByMonth.keys.length,
       shrinkWrap: true,
@@ -37,7 +41,7 @@ class FinanceTransactionList extends StatelessWidget {
               itemCount: transactionsForMonth.length,
               separatorBuilder: (context, index) => const Padding(
                 padding: EdgeInsets.symmetric(vertical: 14),
-                child: Divider(color: Colors.black38),
+                child: Divider(color: Colors.black26),
               ),
               itemBuilder: (context, index) {
                 final currentTransaction = transactionsForMonth[index];
@@ -53,9 +57,8 @@ class FinanceTransactionList extends StatelessWidget {
                         color: const Color(0xFFEEF2F8),
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      child: const Icon(
-                        Icons.battery_charging_full_rounded,
-                        color: AppColors.deepBlue,
+                      child: FinanceText.p16(
+                        getInitial(currentTransaction['descricao']),
                       ),
                     ),
                     const SizedBox(width: 15),
