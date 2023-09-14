@@ -107,7 +107,7 @@ class _HomePageState extends State<HomePage> {
                   icon: const Icon(Icons.list_rounded),
                   onPressed: () {
                     setState(() {
-                      page = const ListPage();
+                      page = ListPage();
                     });
                   },
                 ),
