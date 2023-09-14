@@ -11,7 +11,7 @@ class TransactionTopBarPage extends StatelessWidget {
     return Column(
       children: [
         ComponentDocTemplate(
-          title: 'titleLarge',
+          title: 'FinanceAddTransactionAppBar',
           code:
               'FinanceAddTransactionAppBar(onChanged: (p0) {},onPressed: () {},),',
           component: FinanceAddTransactionAppBar(

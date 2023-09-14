@@ -10,7 +10,7 @@ class MenuPage extends StatelessWidget {
     return Column(
       children: [
         ComponentDocTemplate(
-          title: 'titleLarge',
+          title: 'FinanceMenu',
           code: 'FinanceMenu(label: text,icon: Icons.menu,onTap: () {},),',
           component: FinanceMenu(
             label: 'Menu',

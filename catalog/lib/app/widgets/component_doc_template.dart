@@ -16,47 +16,53 @@ class ComponentDocTemplate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              FinanceText.h4(title),
-              const SizedBox(width: 5),
-              GestureDetector(
-                onTap: () async {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: FinanceText.p18('Código copiado com sucesso'),
-                    ),
-                  );
-                  await Clipboard.setData(
-                    ClipboardData(
-                      text: code,
-                    ),
-                  );
-                },
-                child: const Icon(
-                  Icons.file_copy,
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 30),
+      child: SizedBox(
+        width: MediaQuery.of(context).size.width,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                FinanceText.h4(title),
+                const SizedBox(width: 5),
+                GestureDetector(
+                  onTap: () async {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: FinanceText.p18('Código copiado com sucesso'),
+                      ),
+                    );
+                    await Clipboard.setData(
+                      ClipboardData(
+                        text: code,
+                      ),
+                    );
+                  },
+                  child: const Icon(
+                    Icons.file_copy,
+                  ),
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 10),
-          component,
-          const SizedBox(height: 10),
-          Container(
-            decoration: BoxDecoration(
-              color: const Color(0xFF565959),
-              borderRadius: BorderRadius.circular(10),
+              ],
             ),
-            padding: const EdgeInsets.all(15),
-            child: FinanceText.p18(code),
-          ),
-        ],
+            const SizedBox(height: 20),
+            component,
+            const SizedBox(height: 20),
+            Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: const Color(0xFF565959),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              padding: const EdgeInsets.all(15),
+              child: Center(
+                child: FinanceText.p18(code),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

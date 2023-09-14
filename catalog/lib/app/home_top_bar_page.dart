@@ -10,7 +10,7 @@ class HomeTopBarPage extends StatelessWidget {
     return Column(
       children: [
         ComponentDocTemplate(
-          title: 'titleLarge',
+          title: 'FinanceHomeTopBar',
           code:
               'FinanceHomeTopBar(addRoute: () {},removeRoute: () {},transactionRoute: () {},menuRoute: () {},),',
           component: FinanceHomeTopBar(

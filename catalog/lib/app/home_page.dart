@@ -3,6 +3,7 @@ import 'package:catalog/app/menu_page.dart';
 import 'package:flutter/material.dart';
 
 import 'home_top_bar_page.dart';
+import 'text_field_page.dart';
 import 'transaction_top_bar_page.dart';
 import 'widgets/custom_drawer_button.dart';
 
@@ -53,11 +54,20 @@ class _HomePageState extends State<HomePage> {
                   },
                 ),
                 CustomDrawerButton(
-                  label: 'Transaction Top Bar',
+                  label: 'Menu',
                   icon: const Icon(Icons.menu),
                   onPressed: () {
                     setState(() {
                       page = const MenuPage();
+                    });
+                  },
+                ),
+                CustomDrawerButton(
+                  label: 'Text Field',
+                  icon: const Icon(Icons.text_format_rounded),
+                  onPressed: () {
+                    setState(() {
+                      page = const TextFieldPage();
                     });
                   },
                 ),
