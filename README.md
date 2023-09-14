@@ -49,4 +49,3 @@ Antes de enviar qualquer contribuição, certifique-se de executar os testes de 
 
 - [Atomic Design: o que é, como surgiu e sua importância para a criação do Design System](https://medium.com/pretux/atomic-design-o-que-é-como-surgiu-e-sua-importância-para-a-criação-do-design-system-e3ac7b5aca2c)
 - [Atomic design na construção do Design system](https://medium.com/@andersonbarbozadasilva/atomic-design-na-construção-do-design-system-49d401a39a1f)
-# finance_control_ds
