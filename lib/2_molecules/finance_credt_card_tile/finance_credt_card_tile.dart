@@ -31,7 +31,6 @@ class FinanceCredtCardTile extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(height: 20),
         Container(
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
