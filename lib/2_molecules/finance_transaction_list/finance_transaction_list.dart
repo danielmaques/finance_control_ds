@@ -80,48 +80,51 @@ class FinanceTransactionList extends StatelessWidget {
                       },
                     );
                   },
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Container(
-                        height: 48,
-                        width: 48,
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFEEF2F8),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Center(
-                          child: FinanceText.p18(
-                            getInitial(currentTransaction['descricao']),
-                            color: AppColors.deepBlue,
+                  child: Container(
+                    color: Colors.transparent,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Container(
+                          height: 48,
+                          width: 48,
+                          decoration: BoxDecoration(
+                            color: const Color(0xFFEEF2F8),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: Center(
+                            child: FinanceText.p18(
+                              getInitial(currentTransaction['descricao']),
+                              color: AppColors.deepBlue,
+                            ),
                           ),
                         ),
-                      ),
-                      const SizedBox(width: 15),
-                      Expanded(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            FinanceText.p16(
-                              currentTransaction['descricao'],
-                              color: Colors.black,
-                            ),
-                            FinanceText.p16(
-                              formatDate(currentTransaction['data'].toDate()),
-                              color: const Color(0xFF717E95),
-                            ),
-                          ],
+                        const SizedBox(width: 15),
+                        Expanded(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              FinanceText.p16(
+                                currentTransaction['descricao'],
+                                color: Colors.black,
+                              ),
+                              FinanceText.p16(
+                                formatDate(currentTransaction['data'].toDate()),
+                                color: const Color(0xFF717E95),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      FinanceText.p18(
-                        formatMoney(currentTransaction['valor']),
-                        color: currentTransaction['add'] == true
-                            ? AppColors.forestGreen
-                            : AppColors.cherryRed,
-                      ),
-                    ],
+                        FinanceText.p18(
+                          formatMoney(currentTransaction['valor']),
+                          color: currentTransaction['add'] == true
+                              ? AppColors.forestGreen
+                              : AppColors.cherryRed,
+                        ),
+                      ],
+                    ),
                   ),
                 );
               },
