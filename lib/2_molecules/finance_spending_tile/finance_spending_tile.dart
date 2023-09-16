@@ -22,7 +22,7 @@ class FinanceSpendingTile extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              FinanceText.p16('Cartões'),
+              FinanceText.p16('Gastos'),
               Icon(
                 Icons.arrow_forward_ios_rounded,
                 size: 18,
