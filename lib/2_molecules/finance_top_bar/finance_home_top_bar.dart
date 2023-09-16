@@ -9,12 +9,14 @@ class FinanceHomeTopBar extends StatelessWidget implements PreferredSizeWidget {
     required this.removeRoute,
     required this.transactionRoute,
     required this.menuRoute,
+    required this.money,
   });
 
   final Function() addRoute;
   final Function() removeRoute;
   final Function() transactionRoute;
   final Function() menuRoute;
+  final double money;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +36,7 @@ class FinanceHomeTopBar extends StatelessWidget implements PreferredSizeWidget {
             left: 20,
             bottom: 147,
             child: FinanceText.h3(
-              'Saldo',
+              formatMoney(money),
               color: AppColors.white,
             ),
           ),
@@ -80,7 +82,7 @@ class FinanceHomeTopBar extends StatelessWidget implements PreferredSizeWidget {
       ),
     );
   }
-  
+
   @override
- Size get preferredSize => const Size.fromHeight(254);
+  Size get preferredSize => const Size.fromHeight(254);
 }
