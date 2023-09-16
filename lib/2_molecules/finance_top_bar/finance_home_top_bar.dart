@@ -1,4 +1,5 @@
 import 'package:finance_control_ui/finance_control_ui.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -16,7 +17,7 @@ class FinanceHomeTopBar extends StatelessWidget implements PreferredSizeWidget {
   final Function() removeRoute;
   final Function() transactionRoute;
   final Function() menuRoute;
-  final double money;
+  final ValueListenable<double> money;
 
   @override
   Widget build(BuildContext context) {
@@ -29,15 +30,18 @@ class FinanceHomeTopBar extends StatelessWidget implements PreferredSizeWidget {
       child: Stack(
         children: [
           Positioned(
-            right: 20,
+            right: 0,
             child: SvgPicture.asset('assets/icons/lines.svg'),
           ),
           Positioned(
             left: 20,
             bottom: 147,
-            child: FinanceText.h3(
-              formatMoney(money),
-              color: AppColors.white,
+            child: ValueListenableBuilder(
+              valueListenable: money,
+              builder: (context, value, child) => FinanceText.h3(
+                formatMoney(value),
+                color: AppColors.white,
+              ),
             ),
           ),
           Positioned(

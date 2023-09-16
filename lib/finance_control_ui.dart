@@ -20,3 +20,4 @@ export '2_molecules/finance_transaction_list/finance_transaction_list.dart';
 export '2_molecules/finance_filter/finance_filter.dart';
 export '2_molecules/finance_credt_card_tile/finance_credt_card_tile.dart';
 export '2_molecules/finance_spending_tile/finance_spending_tile.dart';
+export '2_molecules/finance_list_tile/finance_list_tile.dart';

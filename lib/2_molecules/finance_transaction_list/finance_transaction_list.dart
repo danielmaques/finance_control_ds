@@ -11,10 +11,6 @@ class FinanceTransactionList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String getInitial(String name) {
-      return name.isNotEmpty ? name[0].toUpperCase() : '?';
-    }
-
     return ListView.separated(
       itemCount: transactionsByMonth.keys.length,
       shrinkWrap: true,

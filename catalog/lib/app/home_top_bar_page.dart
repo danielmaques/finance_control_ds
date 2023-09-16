@@ -14,6 +14,7 @@ class HomeTopBarPage extends StatelessWidget {
           code:
               'FinanceHomeTopBar(addRoute: () {},removeRoute: () {},transactionRoute: () {},menuRoute: () {},),',
           component: FinanceHomeTopBar(
+            money: ValueNotifier(0.0),
             addRoute: () {},
             removeRoute: () {},
             transactionRoute: () {},

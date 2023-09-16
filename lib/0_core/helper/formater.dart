@@ -4,6 +4,10 @@ String formatDate(DateTime date) {
   return DateFormat('dd MMM yyyy').format(date);
 }
 
+String getInitial(String name) {
+  return name.isNotEmpty ? name[0].toUpperCase() : '?';
+}
+
 DateTime now = DateTime.now();
 
 // Formato: Jun 28, 2023
