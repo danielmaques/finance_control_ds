@@ -5,8 +5,11 @@ import 'package:catalog/app/list_page.dart';
 import 'package:catalog/app/menu_page.dart';
 import 'package:flutter/material.dart';
 
+import 'credt_card_tile_page.dart';
 import 'drop_down_page.dart';
+import 'filter_page.dart';
 import 'home_top_bar_page.dart';
+import 'spending_tile_page.dart';
 import 'text_field_page.dart';
 import 'transaction_top_bar_page.dart';
 import 'widgets/custom_drawer_button.dart';
@@ -107,7 +110,34 @@ class _HomePageState extends State<HomePage> {
                   icon: const Icon(Icons.list_rounded),
                   onPressed: () {
                     setState(() {
-                      page = ListPage();
+                      page = const ListPage();
+                    });
+                  },
+                ),
+                CustomDrawerButton(
+                  label: 'Transaction List',
+                  icon: const Icon(Icons.filter_alt_rounded),
+                  onPressed: () {
+                    setState(() {
+                      page = const FilterPage();
+                    });
+                  },
+                ),
+                CustomDrawerButton(
+                  label: 'Transaction List',
+                  icon: const Icon(Icons.filter_alt_rounded),
+                  onPressed: () {
+                    setState(() {
+                      page = const CredtCardTilePage();
+                    });
+                  },
+                ),
+                CustomDrawerButton(
+                  label: 'Transaction List',
+                  icon: const Icon(Icons.filter_alt_rounded),
+                  onPressed: () {
+                    setState(() {
+                      page = const SpendingTilePage();
                     });
                   },
                 ),
