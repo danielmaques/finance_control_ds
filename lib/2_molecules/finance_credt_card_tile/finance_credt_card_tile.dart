@@ -44,9 +44,12 @@ class FinanceCredtCardTile extends StatelessWidget {
             itemCount: 3,
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            separatorBuilder: (context, index) =>  Divider(
-              height: 1,
-              color: Colors.blueGrey[100],
+            separatorBuilder: (context, index) => SizedBox(
+              height: 20,
+              child: Divider(
+                height: 1,
+                color: Colors.blueGrey[100],
+              ),
             ),
             itemBuilder: (context, index) {
               return Row(
