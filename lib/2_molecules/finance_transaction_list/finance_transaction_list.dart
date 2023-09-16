@@ -5,11 +5,9 @@ class FinanceTransactionList extends StatelessWidget {
   const FinanceTransactionList({
     super.key,
     required this.transactionsByMonth,
-    required this.transactions,
   });
 
   final Map<String, List<Map<String, dynamic>>> transactionsByMonth;
-  final List<Map<String, dynamic>> transactions;
 
   @override
   Widget build(BuildContext context) {
