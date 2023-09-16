@@ -41,6 +41,7 @@ class ListPage extends StatelessWidget {
               '', // Você pode adicionar o código-fonte do componente aqui, se desejar
           component: FinanceTransactionList(
             transactionsByMonth: mockTransactionsByMonth,
+            transactions: const {},
           ),
         ),
       ],
