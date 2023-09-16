@@ -16,6 +16,8 @@ class FinanceCredtCardTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         GestureDetector(
           onTap: () => onTap(),
@@ -31,6 +33,7 @@ class FinanceCredtCardTile extends StatelessWidget {
             ],
           ),
         ),
+        const SizedBox(height: 20),
         Container(
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
