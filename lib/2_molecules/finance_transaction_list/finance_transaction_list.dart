@@ -18,6 +18,7 @@ class FinanceTransactionList extends StatelessWidget {
     return ListView.separated(
       itemCount: transactionsByMonth.keys.length,
       shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
       separatorBuilder: (context, index) => const SizedBox(height: 20),
       itemBuilder: (context, index) {
         String month = transactionsByMonth.keys.elementAt(index);
