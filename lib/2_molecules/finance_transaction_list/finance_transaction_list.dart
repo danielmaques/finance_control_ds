@@ -9,7 +9,7 @@ class FinanceTransactionList extends StatelessWidget {
   });
 
   final Map<String, List<Map<String, dynamic>>> transactionsByMonth;
-  final Map<String, List<Map<String, dynamic>>> transactions;
+  final List<Map<String, dynamic>> transactions;
 
   @override
   Widget build(BuildContext context) {
