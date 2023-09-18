@@ -8,10 +8,12 @@ class FinanceSpendingTile extends StatelessWidget {
     super.key,
     required this.spending,
     required this.onTap,
+    required this.sections,
   });
 
   final double spending;
   final Function onTap;
+  final List<PieChartSectionData> sections;
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +70,9 @@ class FinanceSpendingTile extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const PieChartSample2(),
+                  PieChartSample2(
+                    sections: sections,
+                  ),
                 ],
               ),
               SizedBox(
@@ -104,7 +108,12 @@ class FinanceSpendingTile extends StatelessWidget {
 }
 
 class PieChartSample2 extends StatefulWidget {
-  const PieChartSample2({Key? key}) : super(key: key);
+  const PieChartSample2({
+    super.key,
+    required this.sections,
+  });
+
+  final List<PieChartSectionData> sections;
 
   @override
   State<StatefulWidget> createState() => PieChart2State();
@@ -136,97 +145,6 @@ class PieChart2State extends State<PieChartSample2> {
   }
 
   List<PieChartSectionData> showingSections() {
-    return List.generate(4, (i) {
-      final isTouched = i == touchedIndex;
-      final radius = isTouched ? 20.0 : 18.0;
-      switch (i) {
-        case 0:
-          return PieChartSectionData(
-            color: Colors.amber,
-            value: 10,
-            radius: radius,
-            title: '',
-          );
-        case 1:
-          return PieChartSectionData(
-            color: Colors.blueAccent,
-            value: 3,
-            radius: radius,
-            title: '',
-          );
-        case 2:
-          return PieChartSectionData(
-            color: Colors.green,
-            value: 10,
-            title: '',
-            radius: radius,
-          );
-        case 3:
-          return PieChartSectionData(
-            color: Colors.red,
-            value: 10,
-            title: '',
-            radius: radius,
-          );
-        case 4:
-          return PieChartSectionData(
-            color: Colors.red,
-            value: 10,
-            title: '',
-            radius: radius,
-          );
-        case 5:
-          return PieChartSectionData(
-            color: Colors.red,
-            value: 10,
-            title: '',
-            radius: radius,
-          );
-        case 6:
-          return PieChartSectionData(
-            color: Colors.red,
-            value: 10,
-            title: '',
-            radius: radius,
-          );
-        case 7:
-          return PieChartSectionData(
-            color: Colors.red,
-            value: 10,
-            title: '',
-            radius: radius,
-          );
-        case 8:
-          return PieChartSectionData(
-            color: Colors.red,
-            value: 10,
-            title: '',
-            radius: radius,
-          );
-        case 9:
-          return PieChartSectionData(
-            color: Colors.red,
-            value: 10,
-            title: '',
-            radius: radius,
-          );
-        case 10:
-          return PieChartSectionData(
-            color: Colors.red,
-            value: 10,
-            title: '',
-            radius: radius,
-          );
-        case 11:
-          return PieChartSectionData(
-            color: Colors.red,
-            value: 10,
-            title: '',
-            radius: radius,
-          );
-        default:
-          return PieChartSectionData(); // retorno padrão, pode ajustar como preferir
-      }
-    });
+    return widget.sections;
   }
 }
