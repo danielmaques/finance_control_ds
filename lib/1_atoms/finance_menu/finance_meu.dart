@@ -32,6 +32,7 @@ class FinanceMenu extends StatelessWidget {
             ),
           ),
         ),
+        const SizedBox(height: 6),
         FinanceText.p12(
           label,
           color: AppColors.white,
