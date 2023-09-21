@@ -4,16 +4,29 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class FinanceSpendingTile extends StatelessWidget {
-  const FinanceSpendingTile({
-    super.key,
+  FinanceSpendingTile({
+    Key? key,
     required this.spending,
     required this.onTap,
-    required this.sections,
-  });
+    required this.categoryPercentages,
+  }) : super(key: key);
 
   final double spending;
   final Function onTap;
-  final List<PieChartSectionData> sections;
+  final Map<String, double> categoryPercentages;
+
+  final List<Color> categoryColors = [
+    Colors.red,
+    Colors.amber,
+    Colors.green,
+    Colors.grey,
+    Colors.pink,
+    Colors.purple,
+    Colors.tealAccent,
+    Colors.amberAccent,
+    Colors.blue,
+    Colors.brown,
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -42,36 +55,29 @@ class FinanceSpendingTile extends StatelessWidget {
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        FinanceText.p18(
-                          'Gastos',
-                          color: Colors.black,
-                        ),
+                        FinanceText.p18('Gastos', color: Colors.black),
                         const SizedBox(height: 4),
                         FinanceText.p16(
                           '${DateFormat('dd MMM yyyy').format(DateTime(DateTime.now().year, DateTime.now().month, 1))} - ${DateFormat('dd MMM yyyy').format(DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day))}',
                           color: AppColors.slateGray,
                         ),
                         const SizedBox(height: 8),
-                        FinanceText.h3(
-                          formatMoney(spending),
-                          color: Colors.black,
-                        ),
+                        FinanceText.h3(formatMoney(spending),
+                            color: Colors.black),
                       ],
                     ),
                   ),
                   PieChartSample2(
-                    sections: sections,
+                    categoryPercentages: categoryPercentages,
+                    categoryColors: categoryColors,
                   ),
                 ],
               ),
@@ -85,20 +91,28 @@ class FinanceSpendingTile extends StatelessWidget {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  children: List.generate(11, (index) {
+                  children: categoryPercentages.entries.map((entry) {
+                    String categoryName = entry.key;
+                    double percentage = entry.value;
+                    Color categoryColor = categoryColors[categoryPercentages
+                        .keys
+                        .toList()
+                        .indexOf(categoryName)];
+
                     return Container(
                       margin: const EdgeInsets.only(right: 8),
                       padding: const EdgeInsets.symmetric(
                           horizontal: 12, vertical: 6),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
-                        color: Colors.amber,
+                        color: categoryColor,
                       ),
-                      child: const Text('data'),
+                      child: Text(
+                          '$categoryName: ${percentage.toStringAsFixed(2)}%'),
                     );
                   }).toList(),
                 ),
-              )
+              ),
             ],
           ),
         ),
@@ -109,11 +123,13 @@ class FinanceSpendingTile extends StatelessWidget {
 
 class PieChartSample2 extends StatefulWidget {
   const PieChartSample2({
-    super.key,
-    required this.sections,
-  });
+    Key? key,
+    required this.categoryPercentages,
+    required this.categoryColors,
+  }) : super(key: key);
 
-  final List<PieChartSectionData> sections;
+  final Map<String, double> categoryPercentages;
+  final List<Color> categoryColors;
 
   @override
   State<StatefulWidget> createState() => PieChart2State();
@@ -131,9 +147,7 @@ class PieChart2State extends State<PieChartSample2> {
         aspectRatio: 2.3,
         child: PieChart(
           PieChartData(
-            borderData: FlBorderData(
-              show: false,
-            ),
+            borderData: FlBorderData(show: false),
             sectionsSpace: 1,
             centerSpaceRadius: 20,
             startDegreeOffset: 3,
@@ -145,6 +159,18 @@ class PieChart2State extends State<PieChartSample2> {
   }
 
   List<PieChartSectionData> showingSections() {
-    return widget.sections;
+    return widget.categoryPercentages.entries.map((entry) {
+      String categoryName = entry.key;
+      double percentage = entry.value;
+      Color categoryColor = widget.categoryColors[
+          widget.categoryPercentages.keys.toList().indexOf(categoryName)];
+
+      return PieChartSectionData(
+        color: categoryColor,
+        value: percentage,
+        radius: 20,
+        title: '',
+      );
+    }).toList();
   }
 }

@@ -23,3 +23,17 @@ String formatMoney(double value) {
   final formatter = NumberFormat.simpleCurrency(locale: 'pt_BR');
   return formatter.format(value);
 }
+
+double convertToPercentage(double? value, double total) {
+  if (total == 0 || value == null) return 0.0;
+  return (value / total) * 100;
+}
+
+double convertPercentageToValue(double percentage, double total) {
+  return percentage * total;
+}
+
+double formatDoubleValue(double value, {int precision = 2}) {
+  return double.parse(value.toStringAsFixed(precision));
+}
+
