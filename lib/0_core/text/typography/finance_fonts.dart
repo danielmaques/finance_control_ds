@@ -20,7 +20,7 @@ class _FinanceMontserratFontFamily implements FinanceFontFamily {
   const _FinanceMontserratFontFamily();
 
   @override
-  String get name => "Montserrat";
+  String get name => "Poppins";
 
   @override
   List<FinanceFontWeight> get weights => [

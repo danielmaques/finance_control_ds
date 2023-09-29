@@ -10,6 +10,7 @@ class FinanceText extends StatelessWidget {
   final TextAlign? textAlign;
   final FinanceTextStyle style;
   final int? maxLines;
+  final FontWeight? fontWeight;
   final TextOverflow? textOverflow;
 
   FinanceText.h1(
@@ -20,6 +21,7 @@ class FinanceText extends StatelessWidget {
     this.textAlign,
     this.maxLines,
     this.textOverflow,
+    this.fontWeight,
   }) : style = FinanceTitleTypography().heading1;
 
   FinanceText.h2(
@@ -30,6 +32,7 @@ class FinanceText extends StatelessWidget {
     this.textAlign,
     this.maxLines,
     this.textOverflow,
+    this.fontWeight,
   }) : style = FinanceTitleTypography().heading2;
 
   FinanceText.h3(
@@ -40,6 +43,7 @@ class FinanceText extends StatelessWidget {
     this.textAlign,
     this.maxLines,
     this.textOverflow,
+    this.fontWeight,
   }) : style = FinanceTitleTypography().heading3;
 
   FinanceText.h4(
@@ -50,6 +54,7 @@ class FinanceText extends StatelessWidget {
     this.textAlign,
     this.maxLines,
     this.textOverflow,
+    this.fontWeight,
   }) : style = FinanceTitleTypography().heading4;
 
   FinanceText.p18(
@@ -60,6 +65,7 @@ class FinanceText extends StatelessWidget {
     this.textAlign,
     this.maxLines,
     this.textOverflow,
+    this.fontWeight,
   }) : style = FinanceTitleTypography().p18;
 
   FinanceText.p16(
@@ -70,6 +76,7 @@ class FinanceText extends StatelessWidget {
     this.textAlign,
     this.maxLines,
     this.textOverflow,
+    this.fontWeight,
   }) : style = FinanceTitleTypography().p16;
 
   FinanceText.p14(
@@ -80,6 +87,7 @@ class FinanceText extends StatelessWidget {
     this.textAlign,
     this.maxLines,
     this.textOverflow,
+    this.fontWeight,
   }) : style = FinanceTitleTypography().p14;
 
   FinanceText.p12(
@@ -90,6 +98,7 @@ class FinanceText extends StatelessWidget {
     this.textAlign,
     this.maxLines,
     this.textOverflow,
+    this.fontWeight,
   }) : style = FinanceTitleTypography().p12;
 
   @override
