@@ -81,21 +81,21 @@ class FinanceTextField extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
               focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(8),
                 borderSide: const BorderSide(
                   color: AppColors.midnightBlack,
                   width: 1,
                 ),
               ),
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(8),
                 borderSide: BorderSide(
                   color: Colors.grey[200]!,
                   width: 1,
                 ),
               ),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(8),
                 borderSide: BorderSide(
                   color: Colors.grey[200]!,
                   width: 1,
