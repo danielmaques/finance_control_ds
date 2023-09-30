@@ -18,6 +18,8 @@ class FinanceTextField extends StatelessWidget {
     this.textCapitalization = TextCapitalization.none,
     this.label,
     this.maxLines = 1,
+    this.autocorrect,
+    this.textInputAction = TextInputAction.next,
   });
 
   final String? hintText;
@@ -33,6 +35,8 @@ class FinanceTextField extends StatelessWidget {
   final TextCapitalization textCapitalization;
   final String? label;
   final int maxLines;
+  final bool? autocorrect;
+  final TextInputAction textInputAction;
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +51,9 @@ class FinanceTextField extends StatelessWidget {
           child: TextFormField(
             controller: controller,
             obscureText: obscureText,
+            autofocus: true,
+            autocorrect: autocorrect ?? false,
+            textInputAction: textInputAction,
             validator: validator,
             onChanged: (value) {
               if (onChanged != null) {
@@ -89,15 +96,15 @@ class FinanceTextField extends StatelessWidget {
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide(
-                  color: Colors.grey[200]!,
+                borderSide: const BorderSide(
+                  color: Color(0xFFDDE2E5),
                   width: 1,
                 ),
               ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide(
-                  color: Colors.grey[200]!,
+                borderSide: const BorderSide(
+                  color: Color(0xFFDDE2E5),
                   width: 1,
                 ),
               ),

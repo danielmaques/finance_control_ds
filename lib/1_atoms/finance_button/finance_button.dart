@@ -2,7 +2,7 @@ import 'package:finance_control_ui/finance_control_ui.dart';
 import 'package:flutter/material.dart';
 
 class FinanceButton extends StatefulWidget {
-  final String title;
+  final String? title;
   final bool disabled;
   final bool loading;
   final void Function()? onTap;
@@ -10,9 +10,10 @@ class FinanceButton extends StatefulWidget {
   final bool small;
   final bool textOnly;
   final bool branded;
+  final Color color;
 
   const FinanceButton({
-    required this.title,
+    this.title,
     Key? key,
     this.disabled = false,
     this.loading = false,
@@ -21,6 +22,7 @@ class FinanceButton extends StatefulWidget {
     this.small = false,
     this.textOnly = false,
     this.branded = false,
+    this.color = AppColors.lighterBlue,
   }) : super(key: key);
 
   @override
@@ -47,7 +49,7 @@ class _FinanceButtonState extends State<FinanceButton> {
 
   void _setButtonAttributes() {
     _disabled = widget.disabled || widget.onTap == null;
-    _colorBackground = AppColors.lighterBlue;
+    _colorBackground = widget.color;
     _colorDisabled = AppColors.softGray;
     _textIconColor = Colors.white;
   }
@@ -61,7 +63,7 @@ class _FinanceButtonState extends State<FinanceButton> {
         child: Ink(
           decoration: BoxDecoration(
             color: !_disabled ? _colorBackground : _colorDisabled,
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(24),
           ),
           child: SizedBox(
             height: widget.small ? 36 : 48,
@@ -75,8 +77,9 @@ class _FinanceButtonState extends State<FinanceButton> {
                   ),
                 if (widget.icon != null) const SizedBox(width: 5),
                 if (!widget.loading)
+                if(widget.title!.isNotEmpty)
                   Text(
-                    widget.title.toUpperCase(),
+                    widget.title!.toUpperCase(),
                     style: TextStyle(color: _textIconColor),
                   ),
                 if (widget.loading)
