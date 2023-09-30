@@ -51,7 +51,7 @@ class FinanceTextField extends StatelessWidget {
           child: TextFormField(
             controller: controller,
             obscureText: obscureText,
-            autofocus: true,
+            autofocus: false,
             autocorrect: autocorrect ?? false,
             textInputAction: textInputAction,
             validator: validator,
