@@ -1,5 +1,6 @@
 import 'package:finance_control_ui/finance_control_ui.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class FinanceButton extends StatefulWidget {
   final String? title;
@@ -11,6 +12,7 @@ class FinanceButton extends StatefulWidget {
   final bool textOnly;
   final bool branded;
   final Color color;
+  final bool google;
 
   const FinanceButton({
     this.title,
@@ -23,6 +25,7 @@ class FinanceButton extends StatefulWidget {
     this.textOnly = false,
     this.branded = false,
     this.color = AppColors.lighterBlue,
+    this.google = false,
   }) : super(key: key);
 
   @override
@@ -58,34 +61,57 @@ class _FinanceButtonState extends State<FinanceButton> {
   Widget build(BuildContext context) {
     return Material(
       color: Colors.transparent,
+      borderRadius: BorderRadius.circular(24),
       child: InkWell(
         onTap: widget.disabled ? null : widget.onTap,
         child: Ink(
           decoration: BoxDecoration(
             color: !_disabled ? _colorBackground : _colorDisabled,
             borderRadius: BorderRadius.circular(24),
+            border: Border.all(
+              color:
+                  widget.google ? const Color(0xFFDDE2E5) : Colors.transparent,
+            ),
           ),
           child: SizedBox(
             height: widget.small ? 36 : 48,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                if (widget.icon != null)
-                  Icon(
-                    widget.icon,
-                    color: _textIconColor,
+                if (widget.google) ...{
+                  Expanded(
+                    child: SvgPicture.asset(
+                      'assets/icons/google.svg',
+                      height: 30,
+                      width: 30,
+                    ),
                   ),
-                if (widget.icon != null) const SizedBox(width: 5),
-                if (!widget.loading)
-                if(widget.title!.isNotEmpty)
-                  Text(
-                    widget.title!.toUpperCase(),
-                    style: TextStyle(color: _textIconColor),
-                  ),
-                if (widget.loading)
-                  const CircularProgressIndicator(
-                    color: Colors.white,
-                  ),
+                },
+                Visibility(
+                    visible: !widget.google,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        if (widget.icon != null)
+                          Icon(
+                            widget.icon,
+                            color: _textIconColor,
+                          ),
+                        if (widget.icon != null) const SizedBox(width: 5),
+                        if (!widget.loading)
+                          Text(
+                            widget.title?.toUpperCase() ?? '',
+                            style: TextStyle(color: _textIconColor),
+                            textAlign: TextAlign.center,
+                          ),
+                        if (widget.loading)
+                          const CircularProgressIndicator(
+                            color: Colors.white,
+                          ),
+                      ],
+                    )),
               ],
             ),
           ),

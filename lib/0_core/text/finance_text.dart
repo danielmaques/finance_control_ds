@@ -107,7 +107,7 @@ class FinanceText extends StatelessWidget {
       text,
       style: TextStyle(
         fontFamily: style.fontFamily.name,
-        fontWeight: style.fontWeight,
+        fontWeight: fontWeight,
         fontSize: style.fontSize,
         height: style.lineHeight,
         color: color,

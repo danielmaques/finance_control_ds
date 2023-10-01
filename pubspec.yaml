@@ -31,7 +31,7 @@ flutter:
 
   assets:
     - assets/icons/
-    - assets/animations/animation_lmozru7c.json
+    - assets/animations/
 
   fonts:
     - family: Poppins

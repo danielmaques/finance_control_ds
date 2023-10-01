@@ -4,7 +4,7 @@ import 'finance_font_weight.dart';
 class FinanceFontFamilies {
   const FinanceFontFamilies();
 
-  static const FinanceFontFamily montserrat = _FinanceMontserratFontFamily();
+  static const FinanceFontFamily moppins = _FinanceMontserratFontFamily();
   static const FinanceFontFamily inter = _FinanceInterFontFamily();
 }
 
