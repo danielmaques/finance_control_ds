@@ -7,16 +7,18 @@ class FinanceAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.icon = false,
     this.title = '',
     this.onTap,
+    this.color = Colors.transparent,
   }) : super(key: key);
 
   final bool icon;
   final String title;
   final Function()? onTap;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.transparent,
+      backgroundColor: color,
       elevation: 0,
       centerTitle: true,
       title: FinanceText.p16(
