@@ -42,7 +42,7 @@ class _FinanceDropDownState extends State<FinanceDropDown> {
             height: 56,
             padding: const EdgeInsets.symmetric(horizontal: 16),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(8),
               border: Border.all(
                 color: Colors.grey[200]!,
               ),
