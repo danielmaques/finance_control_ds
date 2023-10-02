@@ -6,9 +6,15 @@ class FinanceAccountCardItem extends StatelessWidget {
   const FinanceAccountCardItem({
     super.key,
     required this.selectedTabIndex,
+    required this.gasto,
+    required this.saldo,
+    required this.name,
   });
 
   final int selectedTabIndex;
+  final double gasto;
+  final double saldo;
+  final String name;
 
   @override
   Widget build(BuildContext context) {
@@ -36,12 +42,12 @@ class FinanceAccountCardItem extends StatelessWidget {
                       color: AppColors.deepBlue,
                       shape: BoxShape.circle,
                     ),
-                    child: FinanceText.p18(getInitial('inini'),
-                        color: Colors.white),
+                    child:
+                        FinanceText.p18(getInitial(name), color: Colors.white),
                   ),
                   const SizedBox(width: 16),
                   FinanceText.p18(
-                    'text',
+                    name,
                     color: AppColors.slateGray,
                     fontWeight: FontWeight.w700,
                   ),
@@ -58,7 +64,7 @@ class FinanceAccountCardItem extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                   ),
                   FinanceText.p12(
-                    'R\$ 0,00',
+                    formatMoney(saldo),
                     color: AppColors.forestGreen,
                     fontWeight: FontWeight.w500,
                   ),
@@ -74,7 +80,7 @@ class FinanceAccountCardItem extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                   ),
                   FinanceText.p12(
-                    'R\$ 0,00',
+                    formatMoney(gasto),
                     color: AppColors.cherryRed,
                     fontWeight: FontWeight.w500,
                   ),
