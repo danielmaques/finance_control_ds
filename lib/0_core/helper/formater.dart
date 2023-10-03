@@ -37,3 +37,9 @@ double formatDoubleValue(double value, {int precision = 2}) {
   return double.parse(value.toStringAsFixed(precision));
 }
 
+double formatValueProgress(double total, double value) {
+  // Arredonde o valor para uma casa decimal
+  double roundedValue = (value * 10).round() / total / 10;
+
+  return double.parse(roundedValue.toStringAsFixed(1));
+}
