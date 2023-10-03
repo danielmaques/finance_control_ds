@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../finance_control_ui.dart';
 
@@ -9,12 +10,16 @@ class FinanceAccountCardItem extends StatelessWidget {
     required this.gasto,
     required this.saldo,
     required this.name,
+    required this.accountType,
+    required this.delete,
   });
 
   final int selectedTabIndex;
   final double gasto;
   final double saldo;
   final String name;
+  final String accountType;
+  final Function() delete;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +27,109 @@ class FinanceAccountCardItem extends StatelessWidget {
       elevation: 1,
       borderRadius: BorderRadius.circular(25),
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                scrollable: true,
+                actionsAlignment: MainAxisAlignment.center,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    FinanceText.h4(
+                      'Detalhes da conta',
+                      fontWeight: FontWeight.w500,
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        Modular.to.pop();
+                      },
+                      icon: Icon(
+                        Icons.close_rounded,
+                        size: 20,
+                        color: Colors.grey[400],
+                      ),
+                    ),
+                  ],
+                ),
+                content: Column(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 6),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25),
+                        border: Border.all(color: AppColors.deepBlue),
+                      ),
+                      child: FinanceText.p18(
+                        name,
+                        color: AppColors.deepBlue,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    FinanceText.p16(
+                      'Saldo atual',
+                      color: AppColors.midnightBlack,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    const SizedBox(height: 8),
+                    FinanceText.p16(
+                      formatMoney(saldo),
+                      color: AppColors.midnightBlack,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    const SizedBox(height: 16),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        FinanceText.p16('Tipo de conta'),
+                        FinanceText.p16(
+                          accountType,
+                          fontWeight: FontWeight.bold,
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+                actions: [
+                  Column(
+                    children: [
+                      const Divider(
+                        height: 1,
+                        color: AppColors.softGray,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          TextButton(
+                            child: FinanceText.p16(
+                              'Excluir',
+                              color: AppColors.cherryRed,
+                            ),
+                            onPressed: delete,
+                          ),
+                          TextButton(
+                            child: FinanceText.p16(
+                              'Editar',
+                              color: AppColors.deepBlue,
+                            ),
+                            onPressed: () {},
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              );
+            },
+          );
+        },
         borderRadius: BorderRadius.circular(25),
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -42,8 +149,11 @@ class FinanceAccountCardItem extends StatelessWidget {
                       color: AppColors.deepBlue,
                       shape: BoxShape.circle,
                     ),
-                    child:
-                        FinanceText.p18(getInitial(name), color: Colors.white),
+                    child: FinanceText.p18(
+                      getInitial(name),
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                   const SizedBox(width: 16),
                   FinanceText.p18(

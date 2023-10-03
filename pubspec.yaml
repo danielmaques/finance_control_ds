@@ -16,6 +16,7 @@ dependencies:
   fl_chart: ^0.63.0
   cloud_firestore: ^4.9.1
   lottie: ^2.6.0
+  flutter_modular: ^6.3.1
 
 dev_dependencies:
   flutter_test:
