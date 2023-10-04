@@ -77,6 +77,7 @@ class _FinanceAddTransactionAppBarState
             Align(
               alignment: Alignment.center,
               child: TextFormField(
+                autofocus: true,
                 textAlign: TextAlign.center,
                 initialValue: 'R\$ 0,00',
                 style: const TextStyle(

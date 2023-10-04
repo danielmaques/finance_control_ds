@@ -1,6 +1,5 @@
 import 'package:finance_control_ui/finance_control_ui.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class FinanceButton extends StatefulWidget {
   final String? title;
@@ -79,39 +78,22 @@ class _FinanceButtonState extends State<FinanceButton> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                if (widget.google) ...{
-                  Expanded(
-                    child: SvgPicture.asset(
-                      'assets/icons/google.svg',
-                      height: 30,
-                      width: 30,
-                    ),
+                if (widget.icon != null)
+                  Icon(
+                    widget.icon,
+                    color: _textIconColor,
+                    size: 30,
                   ),
-                },
-                Visibility(
-                    visible: !widget.google,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        if (widget.icon != null)
-                          Icon(
-                            widget.icon,
-                            color: _textIconColor,
-                          ),
-                        if (widget.icon != null) const SizedBox(width: 5),
-                        if (!widget.loading)
-                          Text(
-                            widget.title?.toUpperCase() ?? '',
-                            style: TextStyle(color: _textIconColor),
-                            textAlign: TextAlign.center,
-                          ),
-                        if (widget.loading)
-                          const CircularProgressIndicator(
-                            color: Colors.white,
-                          ),
-                      ],
-                    )),
+                if (!widget.loading)
+                  Text(
+                    widget.title?.toUpperCase() ?? '',
+                    style: TextStyle(color: _textIconColor),
+                    textAlign: TextAlign.center,
+                  ),
+                if (widget.loading)
+                  const CircularProgressIndicator(
+                    color: Colors.white,
+                  )
               ],
             ),
           ),
