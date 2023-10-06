@@ -10,6 +10,7 @@ class FinanceDropDown extends StatefulWidget {
     required this.onItemSelected,
     this.itemColors,
     this.border = false,
+    this.elevation = 1,
   }) : super(key: key);
 
   final String? initialItem;
@@ -18,6 +19,7 @@ class FinanceDropDown extends StatefulWidget {
   final String hint;
   final Function(String) onItemSelected;
   final bool border;
+  final double elevation;
 
   @override
   State<FinanceDropDown> createState() => _FinanceDropDownState();
@@ -40,7 +42,7 @@ class _FinanceDropDownState extends State<FinanceDropDown> {
       valueListenable: widget.categoriesList,
       builder: (context, categories, child) {
         return Material(
-          elevation: 1,
+          elevation: widget.elevation,
           borderRadius: BorderRadius.circular(8),
           child: InkWell(
             onTap: () {},

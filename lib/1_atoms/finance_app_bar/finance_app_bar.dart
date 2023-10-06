@@ -19,7 +19,7 @@ class FinanceAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: color,
-      elevation: 1,
+      elevation: 0,
       centerTitle: true,
       title: FinanceText.p16(
         title,

@@ -47,73 +47,77 @@ class FinanceSpendingTile extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 20),
-        Container(
-          padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        FinanceText.p18('Gastos', color: Colors.black),
-                        const SizedBox(height: 4),
-                        FinanceText.p16(
-                          '${DateFormat('dd MMM yyyy').format(DateTime(DateTime.now().year, DateTime.now().month, 1))} - ${DateFormat('dd MMM yyyy').format(DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day))}',
-                          color: AppColors.slateGray,
-                        ),
-                        const SizedBox(height: 8),
-                        FinanceText.h3(formatMoney(spending),
-                            color: Colors.black),
-                      ],
-                    ),
-                  ),
-                  PieChartSample2(
-                    categoryPercentages: categoryPercentages,
-                    categoryColors: categoryColors,
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 20,
-                child: Divider(
-                  height: 1,
-                  color: Colors.blueGrey[100],
-                ),
-              ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: categoryPercentages.entries.map((entry) {
-                    String categoryName = entry.key;
-                    double percentage = entry.value;
-                    Color categoryColor = categoryColors[categoryPercentages
-                        .keys
-                        .toList()
-                        .indexOf(categoryName)];
-
-                    return Container(
-                      margin: const EdgeInsets.only(right: 8),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 12, vertical: 6),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: categoryColor,
+        Material(
+          elevation: 1,
+          borderRadius: BorderRadius.circular(16),
+          child: Container(
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          FinanceText.p18('Gastos', color: Colors.black),
+                          const SizedBox(height: 4),
+                          FinanceText.p16(
+                            '${DateFormat('dd MMM yyyy').format(DateTime(DateTime.now().year, DateTime.now().month, 1))} - ${DateFormat('dd MMM yyyy').format(DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day))}',
+                            color: AppColors.slateGray,
+                          ),
+                          const SizedBox(height: 8),
+                          FinanceText.h3(formatMoney(spending),
+                              color: Colors.black),
+                        ],
                       ),
-                      child: Text(
-                          '$categoryName: ${percentage.toStringAsFixed(2)}%'),
-                    );
-                  }).toList(),
+                    ),
+                    PieChartSample2(
+                      categoryPercentages: categoryPercentages,
+                      categoryColors: categoryColors,
+                    ),
+                  ],
                 ),
-              ),
-            ],
+                SizedBox(
+                  height: 20,
+                  child: Divider(
+                    height: 1,
+                    color: Colors.blueGrey[100],
+                  ),
+                ),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: categoryPercentages.entries.map((entry) {
+                      String categoryName = entry.key;
+                      double percentage = entry.value;
+                      Color categoryColor = categoryColors[categoryPercentages
+                          .keys
+                          .toList()
+                          .indexOf(categoryName)];
+
+                      return Container(
+                        margin: const EdgeInsets.only(right: 8),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 12, vertical: 6),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: categoryColor,
+                        ),
+                        child: Text(
+                            '$categoryName: ${percentage.toStringAsFixed(2)}%'),
+                      );
+                    }).toList(),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ],
