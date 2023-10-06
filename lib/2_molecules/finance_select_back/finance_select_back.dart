@@ -2,14 +2,20 @@ import 'package:finance_control_ui/finance_control_ui.dart';
 import 'package:flutter/material.dart';
 
 class FinanceSelectBank extends StatefulWidget {
-  const FinanceSelectBank({super.key});
+  const FinanceSelectBank({
+    super.key,
+    this.selectedItem,
+  });
+
+  final String? selectedItem;
 
   @override
   State<FinanceSelectBank> createState() => _FinanceSelectBankState();
 }
 
 class _FinanceSelectBankState extends State<FinanceSelectBank> {
-  String? selectedItem;
+  SearchController searchController = SearchController();
+  String? bankSelect;
 
   List<String> banks = [
     "American Express",
@@ -20,7 +26,7 @@ class _FinanceSelectBankState extends State<FinanceSelectBank> {
     "Elo",
     "Nubank",
     "Aura",
-    "Banco Inter",
+    "Inter",
     "Banco do Brasil",
     "Bradesco",
     "Caixa",
@@ -38,9 +44,9 @@ class _FinanceSelectBankState extends State<FinanceSelectBank> {
     "BRDE",
     "BS2",
     "BTG Pactual",
-    "Banco Cacique",
-    "Banco PAN",
-    "Banco Votorantim",
+    "Cacique",
+    "PAN",
+    "Votorantim",
     "Banco do Nordeste",
     "Banese",
     "Banestes",
@@ -122,12 +128,12 @@ class _FinanceSelectBankState extends State<FinanceSelectBank> {
     "Banca MPS",
     "Banca Mediolanum",
     "Banca Populare di Sondrio",
-    "Banco BPM",
+    "BPM",
     "Banco de Bogotá",
     "Banco de Occident",
     "Banco del Bajio",
-    "BancoPosta",
-    "Bancolombia",
+    "Posta",
+    "lombia",
     "Bangkok Bank",
     "Bank Norwegian",
     "Bank Rakyat",
@@ -215,7 +221,6 @@ class _FinanceSelectBankState extends State<FinanceSelectBank> {
     "Nykredit",
     "OP",
     "Otkritie",
-    "Outros",
     "PNC Financial Services",
     "Patagonia",
     "Piraeus",
@@ -281,95 +286,59 @@ class _FinanceSelectBankState extends State<FinanceSelectBank> {
     "Will",
     "UTIL",
     "Caju",
+    "Outros"
   ];
 
   @override
+  void initState() {
+    super.initState();
+    bankSelect = widget.selectedItem;
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder<List<String>>(
-      // Substitua este valueListenable pelo seu valor real.
-      valueListenable: ValueNotifier<List<String>>(banks),
-      builder: (context, categories, child) {
-        return SizedBox(
-          height: 56,
-          width: double.infinity,
-          child: Material(
-            elevation: 1,
-            borderRadius: BorderRadius.circular(8),
-            child: InkWell(
-              onTap: () {
-                showModalBottomSheet(
-                  context: context,
-                  shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(30),
-                      topRight: Radius.circular(30),
-                    ),
-                  ),
-                  elevation: 3,
-                  backgroundColor: AppColors.white,
-                  builder: (context) {
-                    return StatefulBuilder(
-                      builder: (BuildContext context, StateSetter setState) {
-                        final searchController = TextEditingController();
-
-                        List<String> filteredBanks = [...banks];
-
-                        // Função para filtrar os bancos com base na pesquisa.
-                        void filterBanks(String query) {
-                          setState(() {
-                            filteredBanks = banks
-                                .where((bank) => bank
-                                    .toLowerCase()
-                                    .contains(query.toLowerCase()))
-                                .toList();
-                          });
-                        }
-
-                        return Container(
-                          height: 500,
-                          padding: const EdgeInsets.all(16),
-                          width: double.infinity,
-                          child: Column(
-                            children: [
-                              Container(
-                                height: 4,
-                                width: 30,
-                                decoration: BoxDecoration(
-                                  color: AppColors.slateGray,
-                                  borderRadius: BorderRadius.circular(2),
-                                ),
-                              ),
-                              const SizedBox(height: 20),
-                              TextField(
-                                controller: searchController,
-                                onChanged: filterBanks,
-                                decoration: const InputDecoration(
-                                  hintText: 'Pesquisar bancos',
-                                  prefixIcon: Icon(Icons.search),
-                                ),
-                              ),
-                              const SizedBox(height: 16),
-                              Expanded(
-                                child: ListView.builder(
-                                  itemCount: filteredBanks.length,
-                                  itemBuilder: (context, index) {
-                                    return FinanceText.p16(
-                                      filteredBanks[index],
-                                    );
-                                  },
-                                ),
-                              ),
-                            ],
-                          ),
-                        );
-                      },
-                    );
-                  },
-                );
-              },
-              borderRadius: BorderRadius.circular(8),
-            ),
+    return SearchAnchor(
+      builder: (BuildContext context, SearchController controller) {
+        return SearchBar(
+          shape: MaterialStateProperty.all(const ContinuousRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(25)),
+          )),
+          backgroundColor: MaterialStateProperty.all(Colors.white),
+          elevation: MaterialStateProperty.all(1),
+          controller: controller,
+          hintText: bankSelect ?? "Selecione seu banco",
+          padding: const MaterialStatePropertyAll<EdgeInsets>(
+            EdgeInsets.symmetric(horizontal: 16.0),
           ),
+          onTap: () {
+            controller.openView();
+          },
+          onChanged: (_) {
+            controller.openView();
+          },
+          leading: const Icon(Icons.account_balance_outlined),
+        );
+      },
+      suggestionsBuilder: (BuildContext context, SearchController controller) {
+        final searchText = controller.text;
+
+        final filteredBanks = banks.where((bank) {
+          return bank.toLowerCase().contains(searchText.toLowerCase());
+        }).toList();
+
+        return filteredBanks.map<Widget>(
+          (bank) {
+            return ListTile(
+              title: FinanceText.p18(bank),
+              onTap: () {
+                setState(() {
+                  bankSelect = bank;
+                });
+                searchController.text = bank;
+                controller.closeView(bankSelect);
+              },
+            );
+          },
         );
       },
     );

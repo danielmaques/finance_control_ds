@@ -1,3 +1,4 @@
+import 'package:finance_control_ui/finance_control_ui.dart';
 import 'package:flutter/material.dart';
 
 class FinanceDropDown extends StatefulWidget {
@@ -6,8 +7,9 @@ class FinanceDropDown extends StatefulWidget {
     this.initialItem,
     required this.categoriesList,
     required this.hint,
-    this.itemColors,
     required this.onItemSelected,
+    this.itemColors,
+    this.border = false,
   }) : super(key: key);
 
   final String? initialItem;
@@ -15,6 +17,7 @@ class FinanceDropDown extends StatefulWidget {
   final List<Color>? itemColors;
   final String hint;
   final Function(String) onItemSelected;
+  final bool border;
 
   @override
   State<FinanceDropDown> createState() => _FinanceDropDownState();
@@ -37,77 +40,85 @@ class _FinanceDropDownState extends State<FinanceDropDown> {
       valueListenable: widget.categoriesList,
       builder: (context, categories, child) {
         return Material(
-          type: MaterialType.transparency,
-          child: Container(
-            height: 56,
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              border: Border.all(
-                color: Colors.grey[200]!,
+          elevation: 1,
+          borderRadius: BorderRadius.circular(8),
+          child: InkWell(
+            onTap: () {},
+            child: Container(
+              height: 56,
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(
+                  color: widget.border == true
+                      ? Colors.grey[200]!
+                      : Colors.transparent,
+                ),
               ),
-            ),
-            child: DropdownButtonHideUnderline(
-              child: DropdownButton<String>(
-                value: selectedItem,
-                hint: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    selectedItem ?? widget.hint,
-                    style: TextStyle(color: Colors.grey[500]),
-                  ),
-                ),
-                items: categories.map((value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Row(
-                      children: [
-                        Container(
-                          width: 12,
-                          height: 12,
-                          decoration: BoxDecoration(
-                            color: itemColors.isNotEmpty
-                                ? itemColors[categories.indexOf(value) %
-                                    itemColors.length]
-                                : Colors.transparent,
-                            shape: BoxShape.circle,
-                          ),
-                        ),
-                        const SizedBox(width: 8),
-                        Text(value),
-                      ],
+              child: DropdownButtonHideUnderline(
+                child: DropdownButton<String>(
+                  value: selectedItem,
+                  hint: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      selectedItem ?? widget.hint,
+                      style: const TextStyle(color: AppColors.midnightBlack),
                     ),
-                  );
-                }).toList(),
-                onChanged: (newValue) {
-                  setState(() {
-                    selectedItem = newValue;
-                  });
-                  widget.onItemSelected(newValue!);
-                },
-                isExpanded: true,
-                icon: Icon(
-                  Icons.keyboard_arrow_down_rounded,
-                  size: 32,
-                  color: Colors.grey[500],
-                ),
-                selectedItemBuilder: (BuildContext context) {
-                  return categories.map<Widget>((value) {
-                    return Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        selectedItem ?? "Categoria",
-                        style: TextStyle(color: Colors.grey[500]),
+                  ),
+                  items: categories.map((value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Row(
+                        children: [
+                          Container(
+                            width: 12,
+                            height: 12,
+                            decoration: BoxDecoration(
+                              color: itemColors.isNotEmpty
+                                  ? itemColors[categories.indexOf(value) %
+                                      itemColors.length]
+                                  : Colors.transparent,
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          Text(value),
+                        ],
                       ),
                     );
-                  }).toList();
-                },
-                dropdownColor: Colors.white,
-                borderRadius: BorderRadius.circular(16),
-                style: TextStyle(color: Colors.grey[500]),
-                iconSize: 32,
-                elevation: 16,
-                alignment: Alignment.centerRight,
+                  }).toList(),
+                  onChanged: (newValue) {
+                    setState(() {
+                      selectedItem = newValue;
+                    });
+                    widget.onItemSelected(newValue!);
+                  },
+                  isExpanded: true,
+                  icon: Icon(
+                    Icons.keyboard_arrow_down_rounded,
+                    size: 22,
+                    color: Colors.grey[500],
+                  ),
+                  selectedItemBuilder: (BuildContext context) {
+                    return categories.map<Widget>((value) {
+                      return Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          selectedItem ?? "Categoria",
+                          style:
+                              const TextStyle(color: AppColors.midnightBlack),
+                        ),
+                      );
+                    }).toList();
+                  },
+                  dropdownColor: Colors.white,
+                  borderRadius: BorderRadius.circular(16),
+                  style: const TextStyle(color: AppColors.midnightBlack),
+                  iconSize: 32,
+                  elevation: 16,
+                  alignment: Alignment.centerRight,
+                ),
               ),
             ),
           ),
