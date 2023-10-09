@@ -22,74 +22,76 @@ class FinanceHomeTopBarSliver extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 254,
-      width: double.infinity,
-      decoration: const BoxDecoration(
-        color: AppColors.deepBlue,
-      ),
-      child: Stack(
-        children: [
-          Positioned(
-            right: 0,
-            child: SvgPicture.asset('assets/icons/lines.svg'),
-          ),
-          Positioned(
-            left: 20,
-            bottom: 147,
-            child: ValueListenableBuilder(
-              valueListenable: money,
-              builder: (context, value, child) => Text(
-                formatMoney(value),
-                style: const TextStyle(
-                  fontSize: 24,
-                  color: Colors.white,
+    return SliverAppBar(
+      backgroundColor: AppColors.deepBlue,
+      expandedHeight: 254,
+      floating: true,
+      pinned: false,
+      flexibleSpace: FlexibleSpaceBar(
+        background: Stack(
+          children: [
+            Positioned(
+              right: 0,
+              child: SvgPicture.asset('assets/icons/lines.svg'),
+            ),
+            Positioned(
+              left: 20,
+              bottom: 147,
+              child: ValueListenableBuilder(
+                valueListenable: money,
+                builder: (context, value, child) => Text(
+                  formatMoney(value),
+                  style: const TextStyle(
+                    fontSize: 24,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
-          ),
-          Positioned(
-            left: 20,
-            bottom: 127,
-            child: Text(
-              'Saldo',
-              style: TextStyle(
-                fontSize: 14,
-                color: Colors.white.withOpacity(0.5),
+            Positioned(
+              left: 20,
+              bottom: 127,
+              child: Text(
+                'Saldo',
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.white.withOpacity(0.5),
+                ),
               ),
             ),
-          ),
-          Positioned(
-            left: 24,
-            right: 24,
-            bottom: 16,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                FinanceMenu(
-                  label: 'Adicionar',
-                  icon: Icons.add_rounded,
-                  onTap: addRoute,
-                ),
-                FinanceMenu(
-                  label: 'Remover',
-                  icon: Icons.remove_rounded,
-                  onTap: removeRoute,
-                ),
-                FinanceMenu(
-                  label: 'Transações',
-                  icon: Icons.receipt_outlined,
-                  onTap: transactionRoute,
-                ),
-                FinanceMenu(
-                  label: 'Menu',
-                  icon: Icons.dehaze_outlined,
-                  onTap: menuRoute,
-                ),
-              ],
+            Positioned(
+              left: 24,
+              right: 24,
+              bottom: 16,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  FinanceMenu(
+                    label: 'Adicionar',
+                    icon: Icons.add_rounded,
+                    onTap: addRoute,
+                  ),
+                  FinanceMenu(
+                    label: 'Remover',
+                    icon: Icons.remove_rounded,
+                    onTap: removeRoute,
+                  ),
+                  FinanceMenu(
+                    label: 'Transações',
+                    icon: Icons.receipt_outlined,
+                    onTap: transactionRoute,
+                  ),
+                  FinanceMenu(
+                    label: 'Menu',
+                    icon: Icons.dehaze_outlined,
+                    onTap: menuRoute,
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

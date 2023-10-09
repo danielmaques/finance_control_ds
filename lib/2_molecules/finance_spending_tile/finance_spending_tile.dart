@@ -34,16 +34,19 @@ class FinanceSpendingTile extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () => onTap(),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              FinanceText.p16('Gastos'),
-              Icon(
-                Icons.arrow_forward_ios_rounded,
-                size: 18,
-                color: Colors.grey[500],
-              ),
-            ],
+          child: Container(
+            color: Colors.transparent,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                FinanceText.p16('Gastos'),
+                Icon(
+                  Icons.arrow_forward_ios_rounded,
+                  size: 18,
+                  color: Colors.grey[500],
+                ),
+              ],
+            ),
           ),
         ),
         const SizedBox(height: 20),
