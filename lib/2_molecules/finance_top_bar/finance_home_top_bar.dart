@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:focus_detector_v2/focus_detector_v2.dart';
 
 import '../../finance_control_ui.dart';
 
@@ -10,6 +11,7 @@ class FinanceHomeTopBarSliver extends StatelessWidget {
     required this.removeRoute,
     required this.transactionRoute,
     required this.menuRoute,
+    required this.onVisibilityGained,
     required this.money,
   }) : super(key: key);
 
@@ -17,6 +19,7 @@ class FinanceHomeTopBarSliver extends StatelessWidget {
   final Function() removeRoute;
   final Function() transactionRoute;
   final Function() menuRoute;
+  final Function() onVisibilityGained;
   final double money;
 
   @override
@@ -27,66 +30,69 @@ class FinanceHomeTopBarSliver extends StatelessWidget {
       floating: true,
       pinned: false,
       flexibleSpace: FlexibleSpaceBar(
-        background: Stack(
-          children: [
-            Positioned(
-              right: 0,
-              child: SvgPicture.asset('assets/icons/lines.svg'),
-            ),
-            Positioned(
-              left: 20,
-              bottom: 147,
-              child: Text(
-                formatMoney(money),
-                style: const TextStyle(
-                  fontSize: 24,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
+        background: FocusDetector(
+          onVisibilityGained: onVisibilityGained,
+          child: Stack(
+            children: [
+              Positioned(
+                right: 0,
+                child: SvgPicture.asset('assets/icons/lines.svg'),
+              ),
+              Positioned(
+                left: 20,
+                bottom: 147,
+                child: Text(
+                  formatMoney(money),
+                  style: const TextStyle(
+                    fontSize: 24,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-            ),
-            Positioned(
-              left: 20,
-              bottom: 127,
-              child: Text(
-                'Saldo',
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.white.withOpacity(0.5),
+              Positioned(
+                left: 20,
+                bottom: 127,
+                child: Text(
+                  'Saldo',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.white.withOpacity(0.5),
+                  ),
                 ),
               ),
-            ),
-            Positioned(
-              left: 24,
-              right: 24,
-              bottom: 16,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  FinanceMenu(
-                    label: 'Adicionar',
-                    icon: Icons.add_rounded,
-                    onTap: addRoute,
-                  ),
-                  FinanceMenu(
-                    label: 'Remover',
-                    icon: Icons.remove_rounded,
-                    onTap: removeRoute,
-                  ),
-                  FinanceMenu(
-                    label: 'Transações',
-                    icon: Icons.receipt_outlined,
-                    onTap: transactionRoute,
-                  ),
-                  FinanceMenu(
-                    label: 'Menu',
-                    icon: Icons.dehaze_outlined,
-                    onTap: menuRoute,
-                  ),
-                ],
+              Positioned(
+                left: 24,
+                right: 24,
+                bottom: 16,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    FinanceMenu(
+                      label: 'Adicionar',
+                      icon: Icons.add_rounded,
+                      onTap: addRoute,
+                    ),
+                    FinanceMenu(
+                      label: 'Remover',
+                      icon: Icons.remove_rounded,
+                      onTap: removeRoute,
+                    ),
+                    FinanceMenu(
+                      label: 'Transações',
+                      icon: Icons.receipt_outlined,
+                      onTap: transactionRoute,
+                    ),
+                    FinanceMenu(
+                      label: 'Menu',
+                      icon: Icons.dehaze_outlined,
+                      onTap: menuRoute,
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
