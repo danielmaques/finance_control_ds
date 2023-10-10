@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -18,7 +17,7 @@ class FinanceHomeTopBarSliver extends StatelessWidget {
   final Function() removeRoute;
   final Function() transactionRoute;
   final Function() menuRoute;
-  final ValueListenable<double> money;
+  final double money;
 
   @override
   Widget build(BuildContext context) {
@@ -37,15 +36,12 @@ class FinanceHomeTopBarSliver extends StatelessWidget {
             Positioned(
               left: 20,
               bottom: 147,
-              child: ValueListenableBuilder(
-                valueListenable: money,
-                builder: (context, value, child) => Text(
-                  formatMoney(value),
-                  style: const TextStyle(
-                    fontSize: 24,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
+              child: Text(
+                formatMoney(money),
+                style: const TextStyle(
+                  fontSize: 24,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
