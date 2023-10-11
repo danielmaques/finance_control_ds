@@ -26,3 +26,4 @@ export '2_molecules/finance_account_card_item/finance_account_card_item.dart';
 export '2_molecules/finance_tool_bar/finance_tool_bar.dart';
 export '2_molecules/finance_select_back/finance_select_back.dart';
 export '2_molecules/finance_card/finance_card.dart';
+export '2_molecules/finance_balance/finance_balance.dart';

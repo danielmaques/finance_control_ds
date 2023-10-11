@@ -8,45 +8,36 @@ class FinanceCredtCardTile extends StatelessWidget {
     required this.list,
   });
 
-  final Function onTap;
+  final Function() onTap;
   final Widget list;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        GestureDetector(
-          onTap: () => onTap(),
-          child: Container(
-            color: Colors.transparent,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                FinanceText.p16('Contas e Cartões'),
-                Icon(
-                  Icons.arrow_forward_ios_rounded,
-                  size: 18,
-                  color: Colors.grey[500],
-                ),
-              ],
+    return Material(
+      elevation: 1,
+      borderRadius: BorderRadius.circular(16),
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(16),
+        child: Container(
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(16),
             ),
-          ),
-        ),
-        const SizedBox(height: 20),
-        Material(
-          elevation: 1,
-          borderRadius: BorderRadius.circular(16),
-          child: Container(
-              padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: list),
-        )
-      ],
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                FinanceText.p16(
+                  'Contas',
+                  color: Colors.black,
+                  fontWeight: FontWeight.w500,
+                ),
+                list,
+              ],
+            )),
+      ),
     );
   }
 }
