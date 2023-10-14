@@ -41,7 +41,7 @@ class FinanceCheckBox extends StatelessWidget {
             if (label.isNotEmpty) ...{
               const SizedBox(width: 12),
               Flexible(
-                child: FinanceText.p14(
+                child: FinanceText.l12(
                   label,
                 ),
               ),

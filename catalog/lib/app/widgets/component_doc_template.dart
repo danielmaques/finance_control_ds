@@ -26,13 +26,13 @@ class ComponentDocTemplate extends StatelessWidget {
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                FinanceText.h4(title),
+                FinanceText.b18(title),
                 const SizedBox(width: 5),
                 GestureDetector(
                   onTap: () async {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
-                        content: FinanceText.p18('Código copiado com sucesso'),
+                        content: FinanceText.b16('Código copiado com sucesso'),
                       ),
                     );
                     await Clipboard.setData(
@@ -58,7 +58,7 @@ class ComponentDocTemplate extends StatelessWidget {
               ),
               padding: const EdgeInsets.all(15),
               child: Center(
-                child: FinanceText.p18(code),
+                child: FinanceText.b16(code),
               ),
             ),
           ],

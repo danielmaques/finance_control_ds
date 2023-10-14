@@ -14,4 +14,13 @@ class AppColors {
   static const Color deepBlue = Color(0xFF005CEE);
   static const Color lighterBlue = Color(0xFF2F75FD);
   static const Color pumpkinOrange = Color(0xFFF08757);
+
+  // light
+  static const Color scaffoldBackgroundLight = Color(0xFFF3F5FA);
+  static const Color secondaryLight = Color(0xFFFFFFFF);
+
+
+  // dark
+  static const Color scaffoldBackgroundDark = Color(0xFF303030);
+  static const Color secondaryDark = Color(0xFF242424);
 }

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-import 'typography/finance_text_style.dart';
-import 'typography/finance_typography.dart';
+import '../../finance_control_ui.dart';
 
 class FinanceText extends StatelessWidget {
   final String text;
   final bool underline;
   final Color? color;
   final TextAlign? textAlign;
-  final FinanceTextStyle style;
+  final TextStyle? style;
   final int? maxLines;
   final FontWeight? fontWeight;
   final TextOverflow? textOverflow;
+  final bool isDarkStyle;
 
   FinanceText.h1(
     this.text, {
@@ -22,7 +22,10 @@ class FinanceText extends StatelessWidget {
     this.maxLines,
     this.textOverflow,
     this.fontWeight,
-  }) : style = FinanceTitleTypography().heading1;
+    this.isDarkStyle = false,
+  }) : style = isDarkStyle
+            ? FinanceTextTheme.darkTextTheme.headlineLarge
+            : FinanceTextTheme.lightTextTheme.headlineLarge;
 
   FinanceText.h2(
     this.text, {
@@ -33,7 +36,10 @@ class FinanceText extends StatelessWidget {
     this.maxLines,
     this.textOverflow,
     this.fontWeight,
-  }) : style = FinanceTitleTypography().heading2;
+    this.isDarkStyle = false,
+  }) : style = isDarkStyle
+            ? FinanceTextTheme.darkTextTheme.headlineMedium
+            : FinanceTextTheme.lightTextTheme.headlineMedium;
 
   FinanceText.h3(
     this.text, {
@@ -44,9 +50,12 @@ class FinanceText extends StatelessWidget {
     this.maxLines,
     this.textOverflow,
     this.fontWeight,
-  }) : style = FinanceTitleTypography().heading3;
+    this.isDarkStyle = false,
+  }) : style = isDarkStyle
+            ? FinanceTextTheme.darkTextTheme.headlineSmall
+            : FinanceTextTheme.lightTextTheme.headlineSmall;
 
-  FinanceText.h4(
+  FinanceText.b18(
     this.text, {
     super.key,
     this.underline = false,
@@ -55,9 +64,12 @@ class FinanceText extends StatelessWidget {
     this.maxLines,
     this.textOverflow,
     this.fontWeight,
-  }) : style = FinanceTitleTypography().heading4;
+    this.isDarkStyle = false,
+  }) : style = isDarkStyle
+            ? FinanceTextTheme.darkTextTheme.bodyLarge
+            : FinanceTextTheme.lightTextTheme.bodyLarge;
 
-  FinanceText.p18(
+  FinanceText.b16(
     this.text, {
     super.key,
     this.underline = false,
@@ -66,9 +78,12 @@ class FinanceText extends StatelessWidget {
     this.maxLines,
     this.textOverflow,
     this.fontWeight,
-  }) : style = FinanceTitleTypography().p18;
+    this.isDarkStyle = false,
+  }) : style = isDarkStyle
+            ? FinanceTextTheme.darkTextTheme.bodyMedium
+            : FinanceTextTheme.lightTextTheme.bodyMedium;
 
-  FinanceText.p16(
+  FinanceText.b14(
     this.text, {
     super.key,
     this.underline = false,
@@ -77,9 +92,12 @@ class FinanceText extends StatelessWidget {
     this.maxLines,
     this.textOverflow,
     this.fontWeight,
-  }) : style = FinanceTitleTypography().p16;
+    this.isDarkStyle = false,
+  }) : style = isDarkStyle
+            ? FinanceTextTheme.darkTextTheme.bodySmall
+            : FinanceTextTheme.lightTextTheme.bodySmall;
 
-  FinanceText.p14(
+  FinanceText.l12(
     this.text, {
     super.key,
     this.underline = false,
@@ -88,9 +106,12 @@ class FinanceText extends StatelessWidget {
     this.maxLines,
     this.textOverflow,
     this.fontWeight,
-  }) : style = FinanceTitleTypography().p14;
+    this.isDarkStyle = false,
+  }) : style = isDarkStyle
+            ? FinanceTextTheme.darkTextTheme.labelLarge
+            : FinanceTextTheme.lightTextTheme.labelLarge;
 
-  FinanceText.p12(
+  FinanceText.l10(
     this.text, {
     super.key,
     this.underline = false,
@@ -99,20 +120,16 @@ class FinanceText extends StatelessWidget {
     this.maxLines,
     this.textOverflow,
     this.fontWeight,
-  }) : style = FinanceTitleTypography().p12;
+    this.isDarkStyle = false,
+  }) : style = isDarkStyle
+            ? FinanceTextTheme.darkTextTheme.labelMedium
+            : FinanceTextTheme.lightTextTheme.labelMedium;
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: TextStyle(
-        fontFamily: style.fontFamily.name,
-        fontWeight: fontWeight,
-        fontSize: style.fontSize,
-        height: style.lineHeight,
-        color: color,
-        decoration: underline ? TextDecoration.underline : null,
-      ),
+      style: style,
       textAlign: textAlign,
       overflow: textOverflow,
       maxLines: maxLines,

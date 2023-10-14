@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class TransactionsModel {
+class TransactionModel {
   bool add;
   String categoria;
   DateTime? time;
@@ -8,7 +8,7 @@ class TransactionsModel {
   String pagamento;
   double valor;
 
-  TransactionsModel({
+  TransactionModel({
     required this.add,
     required this.categoria,
     this.time,
@@ -17,11 +17,11 @@ class TransactionsModel {
     required this.valor,
   });
 
-  factory TransactionsModel.fromJson(Map<String, dynamic> json) {
+  factory TransactionModel.fromJson(Map<String, dynamic> json) {
     final timestamp = json['time'] as Timestamp?;
     final time = timestamp?.toDate();
 
-    return TransactionsModel(
+    return TransactionModel(
       add: json['add'] as bool? ?? false,
       categoria: json['categoria'] as String? ?? '',
       time: time,

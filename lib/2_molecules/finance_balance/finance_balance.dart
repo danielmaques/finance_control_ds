@@ -28,10 +28,11 @@ class _FinanceBalanceState extends State<FinanceBalance> {
     return Material(
       borderRadius: BorderRadius.circular(16),
       elevation: 1,
+      color: Theme.of(context).colorScheme.secondary,
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Theme.of(context).colorScheme.secondary,
           borderRadius: BorderRadius.circular(16),
         ),
         child: Row(
@@ -43,13 +44,13 @@ class _FinanceBalanceState extends State<FinanceBalance> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  FinanceText.p14(
+                  Text(
                     'Saldo total',
-                    color: const Color(0xFF848C93),
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                   const SizedBox(height: 16),
                   balance
-                      ? FinanceText.h4(
+                      ? FinanceText.b18(
                           formatMoney(widget.money),
                           color: AppColors.navyBlue,
                           fontWeight: FontWeight.w600,
@@ -60,7 +61,7 @@ class _FinanceBalanceState extends State<FinanceBalance> {
                           child: Container(
                             height: 25,
                             width: 70,
-                            color: Colors.white,
+                            color: Theme.of(context).colorScheme.secondary,
                           ),
                         ),
                 ],
@@ -82,13 +83,12 @@ class _FinanceBalanceState extends State<FinanceBalance> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 18, vertical: 11),
                 decoration: BoxDecoration(
-                  color: AppColors.deepBlue,
+                  color: Theme.of(context).primaryColor,
                   borderRadius: BorderRadius.circular(160),
                 ),
-                child: FinanceText.p14(
+                child: Text(
                   'Ver lançamentos',
-                  color: Colors.white,
-                  fontWeight: FontWeight.w400,
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
               ),
             ),

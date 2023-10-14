@@ -52,12 +52,12 @@ class FinanceToolBarItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                FinanceText.p16(
+                FinanceText.b14(
                   title,
                   color: AppColors.deepBlue,
                   fontWeight: FontWeight.w400,
                 ),
-                FinanceText.p16(
+                FinanceText.b14(
                   'Contas Bancarias',
                   color: AppColors.slateGray,
                   fontWeight: FontWeight.w400,

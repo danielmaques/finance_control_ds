@@ -65,12 +65,12 @@ class FinanceCard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  FinanceText.p16(
+                  FinanceText.b14(
                     'Parcela do mês',
                     color: Colors.grey[500],
                     fontWeight: FontWeight.w500,
                   ),
-                  FinanceText.p16(
+                  FinanceText.b14(
                     formatMoney(cardList[index - 1].availableLimit ?? 0),
                     color: Colors.grey[500],
                     fontWeight: FontWeight.w500,
@@ -81,12 +81,12 @@ class FinanceCard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  FinanceText.p16(
+                  FinanceText.b14(
                     'Fecha em',
                     color: Colors.grey[500],
                     fontWeight: FontWeight.w500,
                   ),
-                  FinanceText.p16(
+                  FinanceText.b14(
                     formatDate(cardList[index - 1].close!),
                     color: Colors.grey[500],
                     fontWeight: FontWeight.w500,
@@ -96,7 +96,7 @@ class FinanceCard extends StatelessWidget {
               const SizedBox(height: 16),
               Row(
                 children: [
-                  FinanceText.p16(
+                  FinanceText.b14(
                     '${formatMoney(cardList[index - 1].availableLimit!)} de ${formatMoney(cardList[index - 1].limit!)}',
                     color: Colors.grey[500],
                     fontWeight: FontWeight.w500,
@@ -115,7 +115,7 @@ class FinanceCard extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 8),
-              FinanceText.p16(
+              FinanceText.b14(
                 'Limite Disponível ${formatMoney(disponivel)}',
                 color: Colors.grey[500],
                 fontWeight: FontWeight.w500,

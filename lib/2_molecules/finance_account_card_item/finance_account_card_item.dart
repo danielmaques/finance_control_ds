@@ -47,7 +47,7 @@ class FinanceAccountCardItem extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          FinanceText.h4(
+                          FinanceText.b18(
                             'Detalhes da conta',
                             fontWeight: FontWeight.w500,
                           ),
@@ -72,20 +72,20 @@ class FinanceAccountCardItem extends StatelessWidget {
                               borderRadius: BorderRadius.circular(25),
                               border: Border.all(color: AppColors.deepBlue),
                             ),
-                            child: FinanceText.p18(
+                            child: FinanceText.b16(
                               name,
                               color: AppColors.deepBlue,
                               fontWeight: FontWeight.w700,
                             ),
                           ),
                           const SizedBox(height: 16),
-                          FinanceText.p16(
+                          FinanceText.b14(
                             'Saldo atual',
                             color: AppColors.midnightBlack,
                             fontWeight: FontWeight.w500,
                           ),
                           const SizedBox(height: 8),
-                          FinanceText.p16(
+                          FinanceText.b14(
                             formatMoney(saldo),
                             color: AppColors.midnightBlack,
                             fontWeight: FontWeight.w500,
@@ -94,8 +94,8 @@ class FinanceAccountCardItem extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              FinanceText.p16('Tipo de conta'),
-                              FinanceText.p16(
+                              FinanceText.b14('Tipo de conta'),
+                              FinanceText.b14(
                                 accountType,
                                 fontWeight: FontWeight.bold,
                               )
@@ -115,13 +115,13 @@ class FinanceAccountCardItem extends StatelessWidget {
                               children: [
                                 TextButton(
                                   onPressed: delete,
-                                  child: FinanceText.p16(
+                                  child: FinanceText.b14(
                                     'Excluir',
                                     color: AppColors.cherryRed,
                                   ),
                                 ),
                                 TextButton(
-                                  child: FinanceText.p16(
+                                  child: FinanceText.b14(
                                     'Editar',
                                     color: AppColors.deepBlue,
                                   ),
@@ -156,14 +156,14 @@ class FinanceAccountCardItem extends StatelessWidget {
                       color: colorCircle,
                       shape: BoxShape.circle,
                     ),
-                    child: FinanceText.p18(
+                    child: FinanceText.b16(
                       getInitial(name),
                       color: Colors.white,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
                   const SizedBox(width: 16),
-                  FinanceText.p18(
+                  FinanceText.b16(
                     name,
                     color: AppColors.slateGray,
                     fontWeight: FontWeight.w700,
@@ -175,12 +175,12 @@ class FinanceAccountCardItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  FinanceText.p12(
+                  FinanceText.l10(
                     'Saldo atual',
                     color: AppColors.midnightBlack,
                     fontWeight: FontWeight.w500,
                   ),
-                  FinanceText.p12(
+                  FinanceText.l10(
                     formatMoney(saldo),
                     color: AppColors.forestGreen,
                     fontWeight: FontWeight.w500,
@@ -193,12 +193,12 @@ class FinanceAccountCardItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    FinanceText.p12(
+                    FinanceText.l10(
                       'Saldo total',
                       color: AppColors.midnightBlack,
                       fontWeight: FontWeight.w500,
                     ),
-                    FinanceText.p12(
+                    FinanceText.l10(
                       'R\$ 0,00',
                       color: Colors.grey,
                       fontWeight: FontWeight.w500,
@@ -213,7 +213,7 @@ class FinanceAccountCardItem extends StatelessWidget {
                   color: AppColors.softGray,
                 ),
                 const SizedBox(height: 10),
-                FinanceText.p12(
+                FinanceText.l10(
                   'Editar',
                   color: AppColors.deepBlue,
                   fontWeight: FontWeight.bold,

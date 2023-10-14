@@ -1,4 +1,3 @@
-import 'package:finance_control_ui/finance_control_ui.dart';
 import 'package:flutter/material.dart';
 
 class FinanceCredtCardTile extends StatelessWidget {
@@ -15,6 +14,7 @@ class FinanceCredtCardTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       elevation: 1,
+      color: Theme.of(context).colorScheme.secondary,
       borderRadius: BorderRadius.circular(16),
       child: InkWell(
         onTap: onTap,
@@ -22,17 +22,16 @@ class FinanceCredtCardTile extends StatelessWidget {
         child: Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.secondary,
               borderRadius: BorderRadius.circular(16),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                FinanceText.p16(
+                Text(
                   'Contas',
-                  color: Colors.black,
-                  fontWeight: FontWeight.w500,
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
                 list,
               ],

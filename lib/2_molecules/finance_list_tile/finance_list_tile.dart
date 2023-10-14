@@ -19,6 +19,7 @@ class FinanceListTile extends StatelessWidget {
       elevation: 1,
       borderRadius: BorderRadius.circular(16),
       child: Container(
+        width: double.infinity,
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
           color: Colors.white,
@@ -28,25 +29,27 @@ class FinanceListTile extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            FinanceText.p16(
+            FinanceText.b14(
               'Transações',
               color: Colors.black,
               fontWeight: FontWeight.w500,
             ),
             transactions.isEmpty
-                ? Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const Icon(
-                        Icons.close,
-                        color: AppColors.slateGray,
-                      ),
-                      FinanceText.p16(
-                        'Nenhuma transação encontrada',
-                        color: AppColors.slateGray,
-                      ),
-                    ],
+                ? Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const Icon(
+                          Icons.close,
+                          color: AppColors.slateGray,
+                        ),
+                        FinanceText.b14(
+                          'Nenhuma transação encontrada',
+                          color: AppColors.slateGray,
+                        ),
+                      ],
+                    ),
                   )
                 : lits,
           ],

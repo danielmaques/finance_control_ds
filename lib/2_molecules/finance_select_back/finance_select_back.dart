@@ -329,7 +329,7 @@ class _FinanceSelectBankState extends State<FinanceSelectBank> {
         return filteredBanks.map<Widget>(
           (bank) {
             return ListTile(
-              title: FinanceText.p18(bank),
+              title: FinanceText.b16(bank),
               onTap: () {
                 setState(() {
                   bankSelect = bank;

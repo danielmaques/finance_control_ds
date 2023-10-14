@@ -39,7 +39,7 @@ class FinanceSpendingTile extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                FinanceText.p16('Gastos'),
+                FinanceText.b14('Gastos'),
                 Icon(
                   Icons.arrow_forward_ios_rounded,
                   size: 18,
@@ -69,9 +69,9 @@ class FinanceSpendingTile extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          FinanceText.p18('Gastos', color: Colors.black),
+                          FinanceText.b16('Gastos', color: Colors.black),
                           const SizedBox(height: 4),
-                          FinanceText.p16(
+                          FinanceText.b14(
                             '${DateFormat('dd MMM yyyy').format(DateTime(DateTime.now().year, DateTime.now().month, 1))} - ${DateFormat('dd MMM yyyy').format(DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day))}',
                             color: AppColors.slateGray,
                           ),

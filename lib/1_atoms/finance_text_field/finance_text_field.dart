@@ -44,7 +44,7 @@ class FinanceTextField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (label != null) FinanceText.p14(label!),
+        if (label != null) FinanceText.l12(label!),
         const SizedBox(height: 8),
         Form(
           key: formKey,
@@ -76,10 +76,9 @@ class FinanceTextField extends StatelessWidget {
               prefixIcon: iconData != null ? Icon(iconData) : null,
               suffixIcon: suffixIcon,
               hintText: hintText,
-              hintStyle: TextStyle(
-                color: Colors.grey[500],
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
+              hintStyle: const TextStyle(
+                color: AppColors.midnightBlack,
+                fontSize: 13,
               ),
               labelText: labelText,
               labelStyle: const TextStyle(
