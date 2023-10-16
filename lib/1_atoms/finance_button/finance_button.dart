@@ -59,7 +59,6 @@ class _FinanceButtonState extends State<FinanceButton> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.transparent,
       borderRadius: BorderRadius.circular(24),
       child: InkWell(
         onTap: widget.disabled ? null : widget.onTap,

@@ -24,19 +24,43 @@ class FinanceTextTheme {
   );
 
   static TextTheme darkTextTheme = TextTheme(
-    headlineLarge:
-        const TextStyle().copyWith(fontSize: 28, color: AppColors.white),
-    headlineMedium:
-        const TextStyle().copyWith(fontSize: 24, color: AppColors.white),
-    headlineSmall:
-        const TextStyle().copyWith(fontSize: 20, color: AppColors.white),
-    bodyLarge: const TextStyle().copyWith(fontSize: 18, color: AppColors.white),
-    bodyMedium:
-        const TextStyle().copyWith(fontSize: 16, color: AppColors.white),
-    bodySmall: const TextStyle().copyWith(fontSize: 14, color: AppColors.white),
-    labelLarge:
-        const TextStyle().copyWith(fontSize: 12, color: AppColors.white),
-    labelMedium:
-        const TextStyle().copyWith(fontSize: 10, color: AppColors.white),
+    headlineLarge: const TextStyle().copyWith(
+      fontSize: 28,
+      color: AppColors.white,
+      fontWeight: FontWeight.bold,
+    ),
+    headlineMedium: const TextStyle().copyWith(
+      fontSize: 24,
+      color: AppColors.white,
+      fontWeight: FontWeight.bold,
+    ),
+    headlineSmall: const TextStyle().copyWith(
+      fontSize: 20,
+      color: AppColors.white,
+      fontWeight: FontWeight.bold,
+    ),
+    bodyLarge: const TextStyle().copyWith(
+      fontSize: 18,
+      color: AppColors.white,
+      fontWeight: FontWeight.w500,
+    ),
+    bodyMedium: const TextStyle().copyWith(
+      fontSize: 16,
+      color: AppColors.white,
+      fontWeight: FontWeight.w500,
+    ),
+    bodySmall: const TextStyle().copyWith(
+      fontSize: 14,
+      color: AppColors.white,
+      fontWeight: FontWeight.w500,
+    ),
+    labelLarge: const TextStyle().copyWith(
+      fontSize: 12,
+      color: AppColors.white,
+    ),
+    labelMedium: const TextStyle().copyWith(
+      fontSize: 10,
+      color: AppColors.white,
+    ),
   );
 }

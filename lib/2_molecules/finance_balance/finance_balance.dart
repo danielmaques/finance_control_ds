@@ -52,7 +52,8 @@ class _FinanceBalanceState extends State<FinanceBalance> {
                   balance
                       ? FinanceText.b18(
                           formatMoney(widget.money),
-                          color: AppColors.navyBlue,
+                          color: AppColors.cherryRed,
+                          fontSize: 18,
                           fontWeight: FontWeight.w600,
                         )
                       : Shimmer.fromColors(

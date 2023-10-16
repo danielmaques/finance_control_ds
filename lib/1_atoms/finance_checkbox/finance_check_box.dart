@@ -28,7 +28,9 @@ class FinanceCheckBox extends StatelessWidget {
               height: 24,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(4),
-                color: isChecked ? AppColors.deepBlue : AppColors.softGray,
+                color: isChecked
+                    ? AppColors.deepBlue
+                    : Theme.of(context).colorScheme.secondary,
               ),
               child: const Center(
                 child: Icon(
@@ -41,8 +43,9 @@ class FinanceCheckBox extends StatelessWidget {
             if (label.isNotEmpty) ...{
               const SizedBox(width: 12),
               Flexible(
-                child: FinanceText.l12(
+                child: Text(
                   label,
+                  style: Theme.of(context).textTheme.labelLarge,
                 ),
               ),
             }

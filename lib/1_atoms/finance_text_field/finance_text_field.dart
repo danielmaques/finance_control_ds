@@ -44,7 +44,11 @@ class FinanceTextField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (label != null) FinanceText.l12(label!),
+        if (label != null)
+          Text(
+            label!,
+            style: Theme.of(context).textTheme.labelLarge,
+          ),
         const SizedBox(height: 8),
         Form(
           key: formKey,
@@ -65,27 +69,16 @@ class FinanceTextField extends StatelessWidget {
             enableSuggestions: true,
             keyboardType: keyboardType,
             inputFormatters: inputFormatters,
-            style: const TextStyle(
-              fontSize: 16,
-              color: AppColors.midnightBlack,
-              fontWeight: FontWeight.w400,
-            ),
+            style: Theme.of(context).textTheme.bodyMedium,
             textCapitalization: textCapitalization,
             cursorColor: AppColors.slateGray,
             decoration: InputDecoration(
               prefixIcon: iconData != null ? Icon(iconData) : null,
               suffixIcon: suffixIcon,
               hintText: hintText,
-              hintStyle: const TextStyle(
-                color: AppColors.midnightBlack,
-                fontSize: 13,
-              ),
+              hintStyle: Theme.of(context).textTheme.labelLarge,
               labelText: labelText,
-              labelStyle: const TextStyle(
-                color: AppColors.midnightBlack,
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-              ),
+              labelStyle: Theme.of(context).textTheme.bodySmall,
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
                 borderSide: const BorderSide(

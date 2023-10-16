@@ -6,11 +6,13 @@ class FinanceText extends StatelessWidget {
   final String text;
   final bool underline;
   final Color? color;
+  final double? fontSize;
   final TextAlign? textAlign;
   final TextStyle? style;
   final int? maxLines;
   final FontWeight? fontWeight;
   final TextOverflow? textOverflow;
+  final bool custonStyle;
   final bool isDarkStyle;
 
   FinanceText.h1(
@@ -22,6 +24,8 @@ class FinanceText extends StatelessWidget {
     this.maxLines,
     this.textOverflow,
     this.fontWeight,
+    this.fontSize,
+    this.custonStyle = false,
     this.isDarkStyle = false,
   }) : style = isDarkStyle
             ? FinanceTextTheme.darkTextTheme.headlineLarge
@@ -36,6 +40,8 @@ class FinanceText extends StatelessWidget {
     this.maxLines,
     this.textOverflow,
     this.fontWeight,
+    this.fontSize,
+    this.custonStyle = false,
     this.isDarkStyle = false,
   }) : style = isDarkStyle
             ? FinanceTextTheme.darkTextTheme.headlineMedium
@@ -50,6 +56,8 @@ class FinanceText extends StatelessWidget {
     this.maxLines,
     this.textOverflow,
     this.fontWeight,
+    this.fontSize,
+    this.custonStyle = false,
     this.isDarkStyle = false,
   }) : style = isDarkStyle
             ? FinanceTextTheme.darkTextTheme.headlineSmall
@@ -64,6 +72,8 @@ class FinanceText extends StatelessWidget {
     this.maxLines,
     this.textOverflow,
     this.fontWeight,
+    this.fontSize,
+    this.custonStyle = false,
     this.isDarkStyle = false,
   }) : style = isDarkStyle
             ? FinanceTextTheme.darkTextTheme.bodyLarge
@@ -78,6 +88,8 @@ class FinanceText extends StatelessWidget {
     this.maxLines,
     this.textOverflow,
     this.fontWeight,
+    this.fontSize,
+    this.custonStyle = false,
     this.isDarkStyle = false,
   }) : style = isDarkStyle
             ? FinanceTextTheme.darkTextTheme.bodyMedium
@@ -92,6 +104,8 @@ class FinanceText extends StatelessWidget {
     this.maxLines,
     this.textOverflow,
     this.fontWeight,
+    this.fontSize,
+    this.custonStyle = false,
     this.isDarkStyle = false,
   }) : style = isDarkStyle
             ? FinanceTextTheme.darkTextTheme.bodySmall
@@ -106,6 +120,8 @@ class FinanceText extends StatelessWidget {
     this.maxLines,
     this.textOverflow,
     this.fontWeight,
+    this.fontSize,
+    this.custonStyle = false,
     this.isDarkStyle = false,
   }) : style = isDarkStyle
             ? FinanceTextTheme.darkTextTheme.labelLarge
@@ -120,6 +136,8 @@ class FinanceText extends StatelessWidget {
     this.maxLines,
     this.textOverflow,
     this.fontWeight,
+    this.fontSize,
+    this.custonStyle = false,
     this.isDarkStyle = false,
   }) : style = isDarkStyle
             ? FinanceTextTheme.darkTextTheme.labelMedium
@@ -129,7 +147,14 @@ class FinanceText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: style,
+      style: color != null
+          ? TextStyle(
+              fontFamily: 'Popins',
+              color: color,
+              fontSize: fontSize,
+              fontWeight: fontWeight,
+            )
+          : style,
       textAlign: textAlign,
       overflow: textOverflow,
       maxLines: maxLines,

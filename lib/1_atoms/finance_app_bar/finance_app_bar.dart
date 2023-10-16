@@ -23,15 +23,15 @@ class FinanceAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       title: FinanceText.b14(
         title,
-        color: Colors.black,
+        color: Theme.of(context).colorScheme.background,
       ),
       leading: icon
           ? GestureDetector(
               onTap: onTap,
-              child: const Icon(
+              child: Icon(
                 Icons.arrow_back,
                 size: 25,
-                color: AppColors.navyBlue,
+                color: Theme.of(context).colorScheme.background,
               ),
             )
           : null,

@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
+
 class AppColors {
   static const Color navyBlue = Color(0xFF313C44);
   static const Color white = Color(0xFFFFFFFF);
@@ -18,7 +20,6 @@ class AppColors {
   // light
   static const Color scaffoldBackgroundLight = Color(0xFFF3F5FA);
   static const Color secondaryLight = Color(0xFFFFFFFF);
-
 
   // dark
   static const Color scaffoldBackgroundDark = Color(0xFF303030);
